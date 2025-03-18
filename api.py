@@ -4,10 +4,11 @@ import requests
 
 
 config = swagger_client.Configuration()
+config.host = "https://api-dev.cloudmore.com"
 api_client = swagger_client.ApiClient(configuration=config)
 
 
-async def authenticate(auth_config):
+def authenticate(auth_config):
     """Retrieve and store access token for Cloudmore API"""
     url = f"{api_client.configuration.host}/connect/token"
     payload = {
@@ -30,14 +31,26 @@ async def authenticate(auth_config):
         print(response)
         raise Exception("Failed to authenticate with CloudMore API")
 
-async def getSellerResellerById(sellerId, resellerId):
+def getSellerResellerById(sellerId, resellerId):
     api_instance = swagger_client.ResellersApi(api_client=api_client)
     data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(sellerId,resellerId)
     print(data)
     return data
 
-async def getResellerAzureSubscriptions(resellerId):
+def createWebHook(sellerId,sellerWebHookCreateViewModel):
+    api_instance = swagger_client.WebHooksApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_webhooks_post(sellerId,sellerWebHookCreateViewModel)
+    print(data)
+    return data
+
+def getResellerAzureSubscriptions(resellerId):
     api_instance = swagger_client.ResellerAzureSubscriptionsApi(api_client=api_client)
     data = api_instance.api_resellers_by_reseller_id_services_azure_subscriptions_get(resellerId)
+    print(data)
+    return data
+
+def getResellerOrganizationById(resellerId, organizationId):
+    api_instance = swagger_client.OrganizationsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_id_get(resellerId,organizationId)
     print(data)
     return data
