@@ -28,11 +28,16 @@ async def authenticate(auth_config):
         api_client.configuration.token_expiry = datetime.now() + timedelta(seconds=data["expires_in"])
     else:
         print(response)
-        raise Exception("Failed to authenticate with Cloudmore API")
+        raise Exception("Failed to authenticate with CloudMore API")
 
 async def getSellerResellerById(sellerId, resellerId):
     api_instance = swagger_client.ResellersApi(api_client=api_client)
-
-    data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(sellerId, resellerId)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(seller_id=sellerId, resellerId=resellerId)
     print(data)
-    print()
+    return data
+
+async def getResellerAzureSubscriptions(resellerId):
+    api_instance = swagger_client.ResellerAzureSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_azure_subscriptions_get(reseller_id=resellerId)
+    print(data)
+    return data
