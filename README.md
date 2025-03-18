@@ -4,6 +4,7 @@
 
 The Cloudmore SDK for python is mostly just an auto generated swagger client,
 and a few examples of how to make use of the Cloudmore API from python code. 
+It also aims to make it easy to install, update and package the API client.
 
 ## Install & Update [WORK IN PROGRESS]
 
