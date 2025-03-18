@@ -32,12 +32,12 @@ async def authenticate(auth_config):
 
 async def getSellerResellerById(sellerId, resellerId):
     api_instance = swagger_client.ResellersApi(api_client=api_client)
-    data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(seller_id=sellerId, resellerId=resellerId)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(sellerId,resellerId)
     print(data)
     return data
 
 async def getResellerAzureSubscriptions(resellerId):
     api_instance = swagger_client.ResellerAzureSubscriptionsApi(api_client=api_client)
-    data = api_instance.api_resellers_by_reseller_id_services_azure_subscriptions_get(reseller_id=resellerId)
+    data = api_instance.api_resellers_by_reseller_id_services_azure_subscriptions_get(resellerId)
     print(data)
     return data

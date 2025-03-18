@@ -6,19 +6,13 @@ The Cloudmore SDK for python is mostly just an auto generated swagger client,
 and a few examples of how to make use of the Cloudmore API from python code. 
 It also aims to make it easy to install, update and package the API client.
 
-## Install & Update [WORK IN PROGRESS]
+## Install & Update
 
 Run the install script in install.py, it will take the following steps:
 
     1. Download swagger.json from CloudMore API Swagger page 
     2. Call an online swagger-codegen generator to generate the client code. The files will be placed
-        in a folder named "swagger_client"
-
-        curl -X POST -H "content-type:application/json" -d '{"swaggerUrl":"https://api.cloudmore.com/swagger/v1/swagger.json"}' https://generator.swagger.io/api/gen/clients/python
-
-        The call returns a link to the generated client
-        {"code":"69d18ff8-ce2d-4dcc-a375-7f9d2076f4b5","link":"https://generator.swagger.io/api/gen/download/69d18ff8-ce2d-4dcc-a375-7f9d2076f4b5"}% 
-
+        in a folder named "python-client"
     3. Finally, it will note the version of the API definition doument and store it in api_version.txt
 
 
@@ -26,20 +20,43 @@ If the CloudMore API has been updated, use the update.py script to generate a ne
 client. It will check the swagger document version against the version in api_version.txt
 and update if necessary.
 
+## Package 
+
+Next you will need to package the swagger client into a python package (.egg), note that you can 
+change the name and version of the package in setup.py.
+
+To package the client, go into the python-client folder and run the following command:
+
+```sh
+python3 setup.py install --user
+```
+(or `sudo python setup.py install` to install the package for all users)
+
+
+Final step is to install the package that was created, if you didnt change anything in setup.py
+it will be named something like swagger_client-1.0.0-****.egg , in the python-client/dist folder,
+
+Once the package is installed you can import the package, and run the sample cli.py script (see samples below)
+
+```python
+    import swagger_client
+```
+
+
 ## Configure Authentication
 
-In order to call the API you will need to fill out the missing values in auth_config.py
+You will need to authenticate with the CloudMore API, see api.py for an example
+The api.py script, makes use of the AuthConfig class in auth_config.py,
+you will need to fill out the missing default values, or set these in code 
+before calling any API function. 
+
+You may also need to handle refreshing the access_token, depending on the application.
+The authenticate method in api.py will store the value of the expires header 
 
 ## Samples 
 
 See 'cli,py' and 'api.py' for examples on how to use the swagger client to 
 call different functions.
-
-## Package 
-
-The can run setup.py to package the swagger client into a python package (.egg), note that you can 
-change the name and version of the package in setup.py
-
 
 # Cloudmore Swagger Client Documentation
 
