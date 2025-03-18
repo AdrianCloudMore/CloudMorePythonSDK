@@ -49,7 +49,7 @@ def main():
 
             api.createWebHook(args.sid,args.data)
         if args.cmd == 'GetResellerOrganizationById':
-            api.getResellerOrganizations(args.rid,args.oid)
+            api.getResellerOrganizationById(args.rid,args.oid)
 
     except Exception as e:
         print(e)
