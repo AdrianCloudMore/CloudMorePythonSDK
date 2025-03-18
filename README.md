@@ -10,11 +10,15 @@ and a few examples of how to make use of the Cloudmore API from python code.
 Run the install script in install.py, it will take the following steps:
 
     1. Download swagger.json from CloudMore API Swagger page 
-    2. Run the following command to generate and download a client, 
-        using an online swagger-codegen generator. The files will be placed
+    2. Call an online swagger-codegen generator to generate the client code. The files will be placed
         in a folder named "swagger_client"
 
-    3. Note the version of the API definition doument in api_version.txt
+        curl -X POST -H "content-type:application/json" -d '{"swaggerUrl":"https://api.cloudmore.com/swagger/v1/swagger.json"}' https://generator.swagger.io/api/gen/clients/python
+
+        The call returns a link to the generated client
+        {"code":"69d18ff8-ce2d-4dcc-a375-7f9d2076f4b5","link":"https://generator.swagger.io/api/gen/download/69d18ff8-ce2d-4dcc-a375-7f9d2076f4b5"}% 
+
+    3. Finally, it will note the version of the API definition doument and store it in api_version.txt
 
 
 If the CloudMore API has been updated, use the update.py script to generate a new
