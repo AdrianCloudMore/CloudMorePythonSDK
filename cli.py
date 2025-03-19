@@ -10,6 +10,7 @@ parser.add_argument("-sid","--sid",metavar="Seller ID",required=False)
 parser.add_argument("-rid","--rid",metavar="Reseller ID",required=False)
 parser.add_argument("-oid","--oid",metavar="Organization ID",required=False)
 parser.add_argument("-wid","--wid",metavar="WebHook ID",required=False)
+parser.add_argument("-uid","--uid",metavar="User ID",required=False)
 parser.add_argument("-u","--username",metavar="Auth: CloudMore Username",required=True)
 parser.add_argument("-p","--password",metavar="Auth: CloudMore Password",required=True)
 parser.add_argument("-s","--secret",metavar="Auth: API Secret",required=True)
@@ -34,6 +35,8 @@ def main():
 
         if args.cmd == 'GetSellerResellerById':
             api.getSellerResellerById(args.sid,args.rid)
+
+        # WebHooks API
         if args.cmd == 'GetSellerWebHookById':
             api.getSellerWebhookById(args.sid, args.wid)
         if args.cmd == 'GetAllSellerWebHooks':
@@ -70,6 +73,19 @@ def main():
             api.updateResellerOrganizationById(args.rid,args.oid,args.data)
         if args.cmd == 'DeleteResellerOrganizationById':
             api.deleteResellerOrganizationById(args.rid,args.oid)
+
+        # Reseller Organization Users
+
+        if args.cmd == 'CreateResellerOrganizationUser':
+            api.CreateResellerOrganizationUserById(args.rid,args.oid,args.data)
+        if args.cmd == 'GetResellerOrganizationUserById':
+            api.GetResellerOrganizationUserById(args.rid,args.oid,args.uid)
+        if args.cmd == 'GetAllResellerOrganizationUsers':
+                api.GetAllResellerOrganizationUsers(args.rid, args.oid)
+        if args.cmd == 'RemoveResellerOrganizationUserById':
+            api.RemoveResellerOrganizationUserById(args.rid, args.oid, args.uid)
+        if args.cmd == 'UpdateResellerOrganizationUserById':
+            api.UpdateResellerOrganizationUserById(args.rid, args.oid, args.uid,args.data)
 
     except Exception as e:
         print(e)

@@ -103,6 +103,40 @@ def deleteResellerOrganizationById(resellerId, organizationId):
     return data
 
 
+# Users API
+
+def CreateResellerOrganizationUserById(resellerId, organizationId, createResellerOrganizationUserViewModel):
+    api_instance = swagger_client.UsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_users_post(resellerId,organizationId,createResellerOrganizationUserViewModel)
+    print(data)
+    return data
+
+def RemoveResellerOrganizationUserById(resellerId, organizationId,userId):
+    api_instance = swagger_client.UsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_users_by_id_delete(resellerId,organizationId,userId)
+    print(data)
+    return data
+
+def UpdateResellerOrganizationUserById(resellerId,organizationId,userId,updateResellerOrganizationUserViewModel):
+    api_instance = swagger_client.UsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_users_by_id_put(resellerId,organizationId,userId,updateResellerOrganizationUserViewModel)
+    print(data)
+    return data
+
+def GetResellerOrganizationUserById(resellerId,organizationId,userId):
+    api_instance = swagger_client.UsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_users_by_id_get(resellerId,organizationId,userId)
+    print(data)
+    return data
+
+def GetAllResellerOrganizationUsers(resellerId, organizationId):
+    api_instance = swagger_client.UsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_users_get(resellerId,organizationId)
+    print(data)
+    return data
+
+
+
 # resellers / :reseller ID / services / Azure Subscriptions
 
 
