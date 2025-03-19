@@ -136,6 +136,23 @@ def GetAllResellerOrganizationUsers(resellerId, organizationId):
     return data
 
 
+# Service Categories API
+
+
+def GetServiceCategories():
+    api_instance = swagger_client.ServiceCategoriesApi(api_client=api_client)
+    data = api_instance.api_services_categories_get()
+    print(data)
+    return data
+
+# Seller Subscriptions API
+
+def RemoveSellerSubscriptionById(sellerId,subscriptionId,removeAction = "Delete"):
+    api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_subscriptions_by_subscription_id_delete(sellerId,subscriptionId,removeAction)
+    print(data)
+    return data
+
 
 # resellers / :reseller ID / services / Azure Subscriptions
 

@@ -9,8 +9,11 @@ parser.add_argument("-c","--cmd",metavar="Command (API Function Name)",required=
 parser.add_argument("-sid","--sid",metavar="Seller ID",required=False)
 parser.add_argument("-rid","--rid",metavar="Reseller ID",required=False)
 parser.add_argument("-oid","--oid",metavar="Organization ID",required=False)
+parser.add_argument("-subid","--subid",metavar="Subscription ID",required=False)
 parser.add_argument("-wid","--wid",metavar="WebHook ID",required=False)
 parser.add_argument("-uid","--uid",metavar="User ID",required=False)
+parser.add_argument("-active","--active",metavar="Show only active *",required=False)
+parser.add_argument("-removeaction","--removeaction",metavar="Remove subscription action, either delete or cancel",required=False)
 parser.add_argument("-u","--username",metavar="Auth: CloudMore Username",required=True)
 parser.add_argument("-p","--password",metavar="Auth: CloudMore Password",required=True)
 parser.add_argument("-s","--secret",metavar="Auth: API Secret",required=True)
@@ -18,7 +21,6 @@ parser.add_argument("-client","--client-id",metavar="Auth: Client ID",required=F
 parser.add_argument("-g","--grant-type",metavar="Auth: Grant Type",required=False)
 parser.add_argument("-scope","--scope",metavar="Auth: Scope",required=False)
 parser.add_argument("-j","--data",metavar="API Function Parameters as JSON",required=False)
-
 
 args = parser.parse_args()
 
@@ -64,7 +66,7 @@ def main():
         # Reseller Organizations
 
         if args.cmd == 'GetAllResellerOrganizations':
-            api.getAllResellerOrganizations(args.rid)
+            api.getAllResellerOrganizations(args.rid,args.active)
         if args.cmd == 'GetResellerOrganizationById':
             api.getResellerOrganizationById(args.rid,args.oid)
         if args.cmd == 'CreateResellerOrganization':
@@ -86,6 +88,17 @@ def main():
             api.RemoveResellerOrganizationUserById(args.rid, args.oid, args.uid)
         if args.cmd == 'UpdateResellerOrganizationUserById':
             api.UpdateResellerOrganizationUserById(args.rid, args.oid, args.uid,args.data)
+
+
+        # Service Categories API
+
+        if args.cmd == 'GetServiceCategories':
+            api.GetServiceCategories()
+
+        # Seller Subscription API
+
+        if args.cmd == 'RemoveSellerSubscriptionById':
+            api.RemoveSellerSubscriptionById(args.sid,args.subid,args.removeaction)
 
     except Exception as e:
         print(e)
