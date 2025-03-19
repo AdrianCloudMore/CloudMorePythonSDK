@@ -9,6 +9,7 @@ parser.add_argument("-c","--cmd",metavar="Command (API Function Name)",required=
 parser.add_argument("-sid","--sid",metavar="Seller ID",required=False)
 parser.add_argument("-rid","--rid",metavar="Reseller ID",required=False)
 parser.add_argument("-oid","--oid",metavar="Organization ID",required=False)
+parser.add_argument("-wid","--wid",metavar="WebHook ID",required=False)
 parser.add_argument("-u","--username",metavar="Auth: CloudMore Username",required=True)
 parser.add_argument("-p","--password",metavar="Auth: CloudMore Password",required=True)
 parser.add_argument("-s","--secret",metavar="Auth: API Secret",required=True)
@@ -25,7 +26,7 @@ args = parser.parse_args()
 
 def main():
     try:
-        print("CloudMore REST API Client")
+        print("CloudMore REST API Client CLI")
 
         print("")
         auth_config = AuthConfig(username=args.username,password=args.password,client_secret=args.secret)
@@ -33,6 +34,10 @@ def main():
 
         if args.cmd == 'GetSellerResellerById':
             api.getSellerResellerById(args.sid,args.rid)
+        if args.cmd == 'GetSellerWebHookById':
+            api.getSellerWebhookById(args.sid, args.wid)
+        if args.cmd == 'GetAllSellerWebHooks':
+            api.getAllSellerWebHooks(args.sid)
         if args.cmd == 'CreateWebHook':
 
 
@@ -48,8 +53,23 @@ def main():
          #   }
 
             api.createWebHook(args.sid,args.data)
+        if args.cmd == 'UpdateWebHook':
+            api.updateWebHook(args.sid,args.wid,args.data)
+        if args.cmd == 'DeleteWebHook':
+            api.deleteWebHook(args.sid, args.wid)
+
+        # Reseller Organizations
+
+        if args.cmd == 'GetAllResellerOrganizations':
+            api.getAllResellerOrganizations(args.rid)
         if args.cmd == 'GetResellerOrganizationById':
             api.getResellerOrganizationById(args.rid,args.oid)
+        if args.cmd == 'CreateResellerOrganization':
+            api.createResellerOrganization(args.rid, args.oid, args.data)
+        if args.cmd == 'UpdateResellerOrganizationById':
+            api.updateResellerOrganizationById(args.rid,args.oid,args.data)
+        if args.cmd == 'DeleteResellerOrganizationById':
+            api.deleteResellerOrganizationById(args.rid,args.oid)
 
     except Exception as e:
         print(e)
