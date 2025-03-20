@@ -186,7 +186,7 @@ def RemoveSellerSubscriptionById(sellerId,subscriptionId,removeAction = "Delete"
 
 # Seller Services API
 
-def GetSellerServiceCustomPropertiesBySellerId(sellerId,serviceId):
+def GetSellerServiceCustomPropertiesById(sellerId,serviceId):
     api_instance = swagger_client.SellerServicesApi(api_client=api_client)
     data = api_instance.api_sellers_by_seller_id_services_by_id_custom_properties_data_get(sellerId,serviceId)
     print(data)
@@ -218,9 +218,9 @@ def UpdateSellerServiceById(sellerId,serviceId,updateSellerServiceViewModel):
     print(data)
     return data
 
-def GetSellerServiceResellers(sellerId):
+def GetSellerServiceResellers(sellerId, serviceId):
     api_instance = swagger_client.SellerServicesApi(api_client=api_client)
-    data = api_instance.api_sellers_by_seller_id_services_by_service_id_resellers_get(sellerId)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_resellers_get(sellerId,serviceId)
     print(data)
     return data
 

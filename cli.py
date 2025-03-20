@@ -14,12 +14,11 @@ parser.add_argument("-service","--service",metavar="Service ID",required=False)
 parser.add_argument("-webhook","--webhook",metavar="WebHook ID",required=False)
 parser.add_argument("-user","--user",metavar="User ID",required=False)
 parser.add_argument("-task","--task",metavar="Task ID",required=False)
-parser.add_argument("-billingline","--billingline",metavar="Billing Line ID",required=False)
-parser.add_argument("-startdate","--startdate",metavar="Start Date",required=False)
-parser.add_argument("-enddate","--enddate",metavar="End Date",required=False)
-parser.add_argument("-active","--active",metavar="Show only active *",required=False)
+parser.add_argument("-billing-line","--billing-line",metavar="Billing Line ID",required=False)
+parser.add_argument("-start-date","--start-date",metavar="Start Date",required=False)
+parser.add_argument("-end-date","--end-date",metavar="End Date",required=False)
+parser.add_argument("-show-active","--show-active",metavar="Show only active *",required=False)
 parser.add_argument("-remove-action","--remove-action",metavar="Remove subscription action, either delete or cancel",required=False)
-parser.add_argument("-include-deleted","--include-deleted",metavar="Include Deleted Subscriptions",required=False)
 parser.add_argument("-u","--username",metavar="Auth: CloudMore Username",required=True)
 parser.add_argument("-p","--password",metavar="Auth: CloudMore Password",required=True)
 parser.add_argument("-s","--secret",metavar="Auth: API Secret",required=True)
@@ -72,7 +71,7 @@ def main():
         # Reseller Organizations
 
         if args.cmd == 'GetAllResellerOrganizations':
-            api.getAllResellerOrganizations(args.reseller,args.active)
+            api.getAllResellerOrganizations(args.reseller,args.show_active)
         if args.cmd == 'GetResellerOrganizationById':
             api.getResellerOrganizationById(args.reseller,args.organization)
         if args.cmd == 'CreateResellerOrganization':
@@ -105,7 +104,7 @@ def main():
         if args.cmd == 'CreateSellerSubscription':
             api.CreateSellerSubscription(args.seller,args.data)
         if args.cmd == 'RemoveSellerSubscriptionById':
-            api.RemoveSellerSubscriptionById(args.seller,args.subscription,args.removeaction)
+            api.RemoveSellerSubscriptionById(args.seller,args.subscription,args.remove_action)
         if args.cmd == 'GetAllSellerSubscriptions':
             api.GetAllSellerSubscriptions(args.seller)
         if args.cmd == 'GetSellerSubscriptionById':
@@ -130,7 +129,7 @@ def main():
         if args.cmd == 'UpdateSellerServiceById':
             api.UpdateSellerServiceById(args.seller, args.service, args.data)
         if args.cmd == 'GetSellerServiceResellers':
-            api.GetSellerServiceResellers(args.seller)
+            api.GetSellerServiceResellers(args.seller,args.service)
 
         # Seller Service Publish API
 
@@ -178,13 +177,13 @@ def main():
         # Seller Reseller Manual Billing Line API
 
         if args.cmd == 'GetManualBillingLineById':
-            api.GetManualBillingLineById(args.seller,args.reseller,args.billingline)
+            api.GetManualBillingLineById(args.seller,args.reseller,args.billing_line)
         if args.cmd == 'GetAllManualBillingLinesByResellerId':
-            api.GetAllManualBillingLinesByResellerId(args.seller,args.reseller,args.startdate,args.enddate)
+            api.GetAllManualBillingLinesByResellerId(args.seller,args.reseller,args.start_date, args.end_date)
         if args.cmd == 'CreateManualBillingLineByResellerId':
             api.CreateManualBillingLineByResellerId(args.seller,args.reseller,args.data)
         if args.cmd == 'RemoveManualBillingLineById':
-            api.RemoveManualBillingLineById(args.seller, args.reseller,args.billingline)
+            api.RemoveManualBillingLineById(args.seller, args.reseller,args.billing_line)
 
 
         # Seller Price List API
