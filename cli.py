@@ -6,21 +6,23 @@ from auth_config import AuthConfig
 args = ""
 parser = argparse.ArgumentParser(prog='CloudMoreCLI', description="CloudMore REST API Client CLI")
 parser.add_argument("-c","--cmd",metavar="Command (API Function Name)",required=True)
-parser.add_argument("-sid","--sid",metavar="Seller ID",required=False)
-parser.add_argument("-rid","--rid",metavar="Reseller ID",required=False)
-parser.add_argument("-oid","--oid",metavar="Organization ID",required=False)
-parser.add_argument("-subid","--subid",metavar="Subscription ID",required=False)
-parser.add_argument("-wid","--wid",metavar="WebHook ID",required=False)
-parser.add_argument("-uid","--uid",metavar="User ID",required=False)
+parser.add_argument("-seller","--seller",metavar="Seller ID",required=False)
+parser.add_argument("-reseller","--reseller",metavar="Reseller ID",required=False)
+parser.add_argument("-organization","--organization",metavar="Organization ID",required=False)
+parser.add_argument("-subscription","--subscription",metavar="Subscription ID",required=False)
+parser.add_argument("-service","--service",metavar="Service ID",required=False)
+parser.add_argument("-webhook","--webhook",metavar="WebHook ID",required=False)
+parser.add_argument("-user","--user",metavar="User ID",required=False)
 parser.add_argument("-active","--active",metavar="Show only active *",required=False)
-parser.add_argument("-removeaction","--removeaction",metavar="Remove subscription action, either delete or cancel",required=False)
+parser.add_argument("-remove-action","--remove-action",metavar="Remove subscription action, either delete or cancel",required=False)
+parser.add_argument("-include-deleted","--include-deleted",metavar="Include Deleted Subscriptions",required=False)
 parser.add_argument("-u","--username",metavar="Auth: CloudMore Username",required=True)
 parser.add_argument("-p","--password",metavar="Auth: CloudMore Password",required=True)
 parser.add_argument("-s","--secret",metavar="Auth: API Secret",required=True)
 parser.add_argument("-client","--client-id",metavar="Auth: Client ID",required=False)
 parser.add_argument("-g","--grant-type",metavar="Auth: Grant Type",required=False)
 parser.add_argument("-scope","--scope",metavar="Auth: Scope",required=False)
-parser.add_argument("-j","--data",metavar="API Function Parameters as JSON",required=False)
+parser.add_argument("-j","--data",metavar="Request Body as JSON",required=False)
 
 args = parser.parse_args()
 
@@ -36,13 +38,13 @@ def main():
         api.authenticate(auth_config)
 
         if args.cmd == 'GetSellerResellerById':
-            api.getSellerResellerById(args.sid,args.rid)
+            api.getSellerResellerById(args.seller,args.reseller)
 
         # WebHooks API
         if args.cmd == 'GetSellerWebHookById':
-            api.getSellerWebhookById(args.sid, args.wid)
+            api.getSellerWebhookById(args.seller, args.webhook)
         if args.cmd == 'GetAllSellerWebHooks':
-            api.getAllSellerWebHooks(args.sid)
+            api.getAllSellerWebHooks(args.seller)
         if args.cmd == 'CreateWebHook':
 
 
@@ -57,38 +59,37 @@ def main():
          #       "name": "string"
          #   }
 
-            api.createWebHook(args.sid,args.data)
+            api.createWebHook(args.seller,args.data)
         if args.cmd == 'UpdateWebHook':
-            api.updateWebHook(args.sid,args.wid,args.data)
+            api.updateWebHook(args.seller,args.webhook,args.data)
         if args.cmd == 'DeleteWebHook':
-            api.deleteWebHook(args.sid, args.wid)
+            api.deleteWebHook(args.seller, args.webhook)
 
         # Reseller Organizations
 
         if args.cmd == 'GetAllResellerOrganizations':
-            api.getAllResellerOrganizations(args.rid,args.active)
+            api.getAllResellerOrganizations(args.reseller,args.active)
         if args.cmd == 'GetResellerOrganizationById':
-            api.getResellerOrganizationById(args.rid,args.oid)
+            api.getResellerOrganizationById(args.reseller,args.organization)
         if args.cmd == 'CreateResellerOrganization':
-            api.createResellerOrganization(args.rid, args.oid, args.data)
+            api.createResellerOrganization(args.reseller, args.data)
         if args.cmd == 'UpdateResellerOrganizationById':
-            api.updateResellerOrganizationById(args.rid,args.oid,args.data)
+            api.updateResellerOrganizationById(args.reseller,args.organization,args.data)
         if args.cmd == 'DeleteResellerOrganizationById':
-            api.deleteResellerOrganizationById(args.rid,args.oid)
+            api.deleteResellerOrganizationById(args.reseller,args.organization)
 
         # Reseller Organization Users
 
         if args.cmd == 'CreateResellerOrganizationUser':
-            api.CreateResellerOrganizationUserById(args.rid,args.oid,args.data)
+            api.CreateResellerOrganizationUserById(args.reseller,args.organization,args.data)
         if args.cmd == 'GetResellerOrganizationUserById':
-            api.GetResellerOrganizationUserById(args.rid,args.oid,args.uid)
+            api.GetResellerOrganizationUserById(args.reseller,args.organization,args.user)
         if args.cmd == 'GetAllResellerOrganizationUsers':
-                api.GetAllResellerOrganizationUsers(args.rid, args.oid)
+                api.GetAllResellerOrganizationUsers(args.reseller, args.organization)
         if args.cmd == 'RemoveResellerOrganizationUserById':
-            api.RemoveResellerOrganizationUserById(args.rid, args.oid, args.uid)
+            api.RemoveResellerOrganizationUserById(args.reseller, args.organization, args.user)
         if args.cmd == 'UpdateResellerOrganizationUserById':
-            api.UpdateResellerOrganizationUserById(args.rid, args.oid, args.uid,args.data)
-
+            api.UpdateResellerOrganizationUserById(args.reseller, args.organization, args.user,args.data)
 
         # Service Categories API
 
@@ -97,8 +98,20 @@ def main():
 
         # Seller Subscription API
 
+        if args.cmd == 'CreateSellerSubscription':
+            api.CreateSellerSubscription(args.seller,args.data)
         if args.cmd == 'RemoveSellerSubscriptionById':
-            api.RemoveSellerSubscriptionById(args.sid,args.subid,args.removeaction)
+            api.RemoveSellerSubscriptionById(args.seller,args.subscription,args.removeaction)
+        if args.cmd == 'GetAllSellerSubscriptions':
+            api.GetAllSellerSubscriptions(args.seller)
+        if args.cmd == 'GetSellerSubscriptionById':
+            api.GetSellerSubscriptionById(args.seller,args.subscription)
+        if args.cmd == 'GetSellerSubscriptionByServiceId':
+            api.GetSellerSubscriptionsByServiceId(args.seller,args.service)
+        if args.cmd == 'UpdateSellerSubscriptionByIdSetLicenseKey':
+            api.UpdateSellerSubscriptionByIdSetLicenseKey(args.seller, args.subscription, args.data)
+
+
 
     except Exception as e:
         print(e)

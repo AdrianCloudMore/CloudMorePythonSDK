@@ -147,9 +147,149 @@ def GetServiceCategories():
 
 # Seller Subscriptions API
 
+def CreateSellerSubscription(sellerId, createSellerSubscriptionViewModel):
+    api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_subscriptions_by_subscription_id_get(sellerId,createSellerSubscriptionViewModel)
+    print(data)
+    return data
+
+def GetSellerSubscriptionById(sellerId,subscriptionId):
+    api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_subscriptions_by_subscription_id_get(sellerId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllSellerSubscriptions(sellerId):
+    api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_subscriptions_get(sellerId)
+    print(data)
+    return data
+
+def GetSellerSubscriptionsByServiceId(sellerId,serviceId):
+    api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_subscriptions_service_by_service_id_get(sellerId,serviceId)
+    print(data)
+    return data
+
+def UpdateSellerSubscriptionByIdSetLicenseKey(sellerId, subscriptionId,updateSellerSubscriptionSetLicenseKeyViewModel):
+    api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_subscriptions_set_license_key_by_subscription_id_put(sellerId,subscriptionId,updateSellerSubscriptionSetLicenseKeyViewModel)
+    print(data)
+    return data
+
 def RemoveSellerSubscriptionById(sellerId,subscriptionId,removeAction = "Delete"):
     api_instance = swagger_client.SellerSubscriptionsApi(api_client=api_client)
     data = api_instance.api_sellers_by_seller_id_subscriptions_by_subscription_id_delete(sellerId,subscriptionId,removeAction)
+    print(data)
+    return data
+
+
+# Seller Services API
+
+def GetSellerServiceCustomPropertiesById(sellerId,serviceId):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_id_custom_properties_data_get(sellerId,serviceId)
+    print(data)
+    return data
+
+
+def CreateSellerServiceById(sellerId,createSellerServiceViewModel):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_post(sellerId,createSellerServiceViewModel)
+    print(data)
+    return data
+
+
+def RemoveSellerServiceById(sellerId,serviceId):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_id_delete(sellerId,serviceId)
+    print(data)
+    return data
+
+def GetSellerServiceById(sellerId,serviceId):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_id_get(sellerId,serviceId)
+    print(data)
+    return data
+
+def UpdateSellerServiceById(sellerId,serviceId,updateSellerServiceViewModel):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_id_put(sellerId,serviceId,updateSellerServiceViewModel)
+    print(data)
+    return data
+
+def GetSellerServiceResellers(sellerId):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_resellers_get(sellerId)
+    print(data)
+    return data
+
+def GetAllSellerServices(sellerId):
+    api_instance = swagger_client.SellerServicesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_get(sellerId)
+    print(data)
+    return data
+
+# Seller Service Publish API
+
+def SellerServicePublishById(sellerId,serviceId,updateSellerServicePublishViewModel):
+    api_instance = swagger_client.SellerServicePublishApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_id_publish_put(sellerId,serviceId,updateSellerServicePublishViewModel)
+    print(data)
+    return data
+
+# Seller Service Products API
+
+
+def CreateSellerServiceProductById(sellerId,serviceId,createSellerServiceProductViewModel):
+    api_instance = swagger_client.SellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_post(sellerId,serviceId,createSellerServiceProductViewModel)
+    print(data)
+    return data
+
+def GetSellerServiceProductById(sellerId,serviceId,productId):
+    api_instance = swagger_client.SellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_id_get(sellerId,serviceId,productId)
+    print(data)
+    return data
+
+def GetAllSellerServiceProducts(sellerId,serviceId):
+    api_instance = swagger_client.SellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_get(sellerId,serviceId)
+    print(data)
+    return data
+
+def RemoveSellerServiceProductById(sellerId,serviceId,productId):
+    api_instance = swagger_client.SellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_id_delete(sellerId,serviceId,productId)
+    print(data)
+    return data
+
+
+def UpdateSellerServiceProductById(sellerId,serviceId,productId,updateSellerServiceProductViewModel):
+    api_instance = swagger_client.SellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_id_put(sellerId,serviceId,productId,updateSellerServiceProductViewModel)
+    print(data)
+    return data
+
+
+# Seller Service Product Addons API
+
+def CreateSellerServiceProductAddon(sellerId,serviceId,productId, createSellerServiceProductAddonViewModel):
+    api_instance = swagger_client.SellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_by_id_delete(sellerId,serviceId,productId,createSellerServiceProductAddonViewModel)
+    print(data)
+    return data
+
+def RemoveSellerServiceProductAddonById(sellerId,serviceId,productId,addonId):
+    api_instance = swagger_client.SellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_by_id_delete(sellerId,serviceId,productId,addonId)
+    print(data)
+    return data
+
+def UpdateSellerServiceProductAddon(sellerId,serviceId,productId, updateSellerServiceProductAddonViewModel):
+    api_instance = swagger_client.SellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_by_id_put(sellerId,serviceId,productId,updateSellerServiceProductAddonViewModel)
     print(data)
     return data
 
