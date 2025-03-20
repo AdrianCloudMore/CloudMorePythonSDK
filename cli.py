@@ -213,13 +213,6 @@ def main():
         if args.cmd == 'GetAllSellerAssociatedResellers':
             api.GetAllSellerAssociatedResellers(args.seller)
 
-        # Resellers API
-
-        if args.cmd == 'GetSellerResellerById':
-            api.GetSellerResellerById(args.seller, args.reseller)
-        if args.cmd == 'GetAllSellerResellers':
-            api.GetAllSellerResellers(args.seller)
-
         # Seller Billing Reports API
 
         if args.cmd == 'GetSellerResellerMonthlyBillingReportByResellerId':
@@ -238,6 +231,29 @@ def main():
         if args.cmd == 'CreateSellerAdministrator':
             api.CreateSellerAdministrator(args.seller,args.data)
 
+        # Resellers API
+
+        if args.cmd == 'GetSellerResellerById':
+            api.GetSellerResellerById(args.seller, args.reseller)
+        if args.cmd == 'GetAllSellerResellers':
+            api.GetAllSellerResellers(args.seller)
+
+        # Reseller Services API
+
+        if args.cmd == 'GetResellerServiceById':
+            api.GetResellerServiceById(args.reseller,args.service)
+        if args.cmd == 'CreateResellerServiceById':
+            api.CreateResellerServiceById(args.reseller,args.data)
+        if args.cmd == 'RemoveResellerServiceById':
+            api.RemoveResellerServiceById(args.reseller,args.service)
+        if args.cmd == 'UpdateResellerServiceById':
+            api.UpdateResellerServiceById(args.reseller, args.service,args.data)
+        if args.cmd == 'UpdateResellerServiceCustomPropertyDataById':
+            api.UpdateResellerServiceCustomPropertyDataById(args.reseller, args.service, args.data)
+        if args.cmd == 'GetAllResellerSubscriptionsByServiceId':
+            api.GetAllResellerSubscriptionsByServiceId(args.reseller, args.service)
+        if args.cmd == 'GetAllResellerServices':
+            api.UpdateResellerServiceById(args.reseller)
 
     except Exception as e:
         print(e)

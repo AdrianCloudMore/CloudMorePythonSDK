@@ -471,6 +471,50 @@ def GetAllSellerResellers(sellerId):
 
 # Reseller Services API
 
+def GetResellerServiceById(resellerId, serviceId):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_id_get(resellerId, serviceId)
+    print(data)
+    return data
+
+def CreateResellerServiceById(resellerId, resellerServiceCreateViewModel):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_post(resellerId, resellerServiceCreateViewModel)
+    print(data)
+    return data
+
+def RemoveResellerServiceById(resellerId, serviceId):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_id_delete(resellerId, serviceId)
+    print(data)
+    return data
+
+def UpdateResellerServiceById(resellerId, serviceId, resellerServiceUpdateViewModel):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_id_put(resellerId, serviceId, resellerServiceUpdateViewModel)
+    print(data)
+    return data
+
+def UpdateResellerServiceCustomPropertyDataById(resellerId, serviceId, resellerServiceCustomPropertyDataUpdateViewModel):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_patch(resellerId, serviceId, resellerServiceCustomPropertyDataUpdateViewModel)
+    print(data)
+    return data
+
+def GetAllResellerSubscriptionsByServiceId(resellerId, serviceId):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_subscriptions_get(resellerId, serviceId)
+    print(data)
+    return data
+
+def GetAllResellerServices(resellerId):
+    api_instance = swagger_client.ResellerServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_get(resellerId)
+    print(data)
+    return data
+
+# Reseller Service Products API
+
 
 
 # resellers / :reseller ID / services / Azure Subscriptions
