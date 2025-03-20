@@ -189,6 +189,11 @@ def main():
 
         # Seller Price List API
 
+        if args.cmd == 'GetSellerCustomServiceProductPricesById':
+            api.GetSellerCustomServiceProductPricesById(args.seller, args.service, args.currency)
+        if args.cmd == 'UpdateSellerCustomServiceProductPricesById':
+            api.UpdateSellerCustomServiceProductPricesById(args.seller, args.service, args.data)
+
 
     except Exception as e:
         print(e)

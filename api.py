@@ -359,6 +359,17 @@ def RemoveManualBillingLineById(sellerId, resellerId,billingLineId):
 # Seller Price List API
 
 
+def GetSellerCustomServiceProductPricesById(sellerId, serviceId ,currencyCode):
+    api_instance = swagger_client.SellerPriceListApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_pricelist_get(sellerId,serviceId,currencyCode)
+    print(data)
+    return data
+
+def UpdateSellerCustomServiceProductPricesById(sellerId, serviceId ,sellerPriceListUpdateViewModel):
+    api_instance = swagger_client.SellerPriceListApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_pricelist_put(sellerId,serviceId,sellerPriceListUpdateViewModel)
+    print(data)
+    return data
 
 
 
