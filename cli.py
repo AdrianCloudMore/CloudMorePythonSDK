@@ -14,6 +14,8 @@ parser.add_argument("-service","--service",metavar="Service ID",required=False)
 parser.add_argument("-webhook","--webhook",metavar="WebHook ID",required=False)
 parser.add_argument("-user","--user",metavar="User ID",required=False)
 parser.add_argument("-task","--task",metavar="Task ID",required=False)
+parser.add_argument("-product","--product",metavar="Product ID",required=False)
+parser.add_argument("-addon","--addon",metavar="Addon ID",required=False)
 parser.add_argument("-billing-line","--billing-line",metavar="Billing Line ID",required=False)
 parser.add_argument("-start-date","--start-date",metavar="Start Date",required=False)
 parser.add_argument("-end-date","--end-date",metavar="End Date",required=False)
@@ -254,6 +256,19 @@ def main():
             api.GetAllResellerSubscriptionsByServiceId(args.reseller, args.service)
         if args.cmd == 'GetAllResellerServices':
             api.UpdateResellerServiceById(args.reseller)
+
+        # Reseller Service Products API
+
+        if args.cmd == 'GetResellerCustomServiceProduct':
+            api.GetResellerCustomServiceProduct(args.reseller,args.service,args.product)
+        if args.cmd == 'GetAllResellerCustomServiceProducts':
+            api.GetAllResellerCustomServiceProducts(args.reseller,args.service)
+        if args.cmd == 'CreateResellerCustomServiceProduct':
+            api.CreateResellerCustomServiceProduct(args.reseller,args.service,args.data)
+        if args.cmd == 'UpdateResellerCustomServiceProduct':
+            api.UpdateResellerCustomServiceProduct(args.reseller, args.service,args.product,args.data)
+        if args.cmd == 'RemoveResellerCustomServiceProduct':
+            api.RemoveResellerCustomServiceProduct(args.reseller,args.service,args.product)
 
     except Exception as e:
         print(e)

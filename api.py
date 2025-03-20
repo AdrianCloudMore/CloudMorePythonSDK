@@ -515,6 +515,39 @@ def GetAllResellerServices(resellerId):
 
 # Reseller Service Products API
 
+def GetResellerCustomServiceProduct(resellerId,serviceId,productId):
+    api_instance = swagger_client.ResellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_id_get(resellerId,serviceId,productId)
+    print(data)
+    return data
+
+def GetAllResellerCustomServiceProducts(resellerId,serviceId):
+    api_instance = swagger_client.ResellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_get(resellerId,serviceId)
+    print(data)
+    return data
+
+def CreateResellerCustomServiceProduct(resellerId,serviceId,resellerServiceProductCreateViewModel):
+    api_instance = swagger_client.ResellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_post(resellerId,serviceId,resellerServiceProductCreateViewModel )
+    print(data)
+    return data
+
+def UpdateResellerCustomServiceProduct(resellerId,serviceId,productId,resellerServiceProductUpdateViewModel):
+    api_instance = swagger_client.ResellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_id_put(resellerId,serviceId,productId,resellerServiceProductUpdateViewModel )
+    print(data)
+    return data
+
+def RemoveResellerCustomServiceProduct(resellerId,serviceId,productId):
+    api_instance = swagger_client.ResellerServiceProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_id_delete(resellerId,serviceId,productId)
+    print(data)
+    return data
+
+
+# Reseller Service Product Addons API
+
 
 
 # resellers / :reseller ID / services / Azure Subscriptions
