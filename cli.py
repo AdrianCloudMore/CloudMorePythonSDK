@@ -13,6 +13,10 @@ parser.add_argument("-subscription","--subscription",metavar="Subscription ID",r
 parser.add_argument("-service","--service",metavar="Service ID",required=False)
 parser.add_argument("-webhook","--webhook",metavar="WebHook ID",required=False)
 parser.add_argument("-user","--user",metavar="User ID",required=False)
+parser.add_argument("-task","--task",metavar="Task ID",required=False)
+parser.add_argument("-billingline","--billingline",metavar="Billing Line ID",required=False)
+parser.add_argument("-startdate","--startdate",metavar="Start Date",required=False)
+parser.add_argument("-enddate","--enddate",metavar="End Date",required=False)
 parser.add_argument("-active","--active",metavar="Show only active *",required=False)
 parser.add_argument("-remove-action","--remove-action",metavar="Remove subscription action, either delete or cancel",required=False)
 parser.add_argument("-include-deleted","--include-deleted",metavar="Include Deleted Subscriptions",required=False)
@@ -111,6 +115,79 @@ def main():
         if args.cmd == 'UpdateSellerSubscriptionByIdSetLicenseKey':
             api.UpdateSellerSubscriptionByIdSetLicenseKey(args.seller, args.subscription, args.data)
 
+        # Seller Services API
+
+        if args.cmd == 'GetSellerServiceById':
+            api.GetSellerServiceById(args.seller,args.service)
+        if args.cmd == 'GetAllSellerServices':
+            api.GetAllSellerServices(args.seller)
+        if args.cmd == 'GetSellerServiceCustomPropertiesById':
+            api.GetSellerServiceCustomPropertiesById(args.seller,args.service)
+        if args.cmd == 'CreateSellerServiceBySellerId':
+            api.CreateSellerServiceBySellerId(args.seller,args.data)
+        if args.cmd == 'RemoveSellerServiceById':
+            api.RemoveSellerServiceById(args.seller,args.service)
+        if args.cmd == 'UpdateSellerServiceById':
+            api.UpdateSellerServiceById(args.seller, args.service, args.data)
+        if args.cmd == 'GetSellerServiceResellers':
+            api.GetSellerServiceResellers(args.seller)
+
+        # Seller Service Publish API
+
+        if args.cmd == 'SellerServicePublishById':
+            api.SellerServicePublishById(args.seller,args.service,args.data)
+
+        # Seller Service Products API
+
+        if args.cmd == 'CreateSellerServiceProductById':
+            api.CreateSellerServiceProductById(args.seller,args.service,args.data)
+        if args.cmd == 'GetSellerServiceProductById':
+            api.GetSellerServiceProductById(args.seller,args.service,args.product)
+        if args.cmd == 'GetAllSellerServiceProducts':
+            api.GetAllSellerServiceProducts(args.seller,args.service)
+        if args.cmd == 'RemoveSellerServiceProductById':
+            api.RemoveSellerServiceProductById(args.seller,args.service,args.product)
+        if args.cmd == 'UpdateSellerServiceProductById':
+            api.UpdateSellerServiceProductById(args.seller, args.service,args.product,args.data)
+
+        # Seller Service Product Addons API
+
+        if args.cmd == 'CreateSellerServiceProductAddon':
+            api.CreateSellerServiceProductAddon(args.seller,args.service,args.product,args.data)
+        if args.cmd == 'RemoveSellerServiceProductAddonById':
+            api.RemoveSellerServiceProductAddonById(args.seller,args.service,args.product,args.addon)
+        if args.cmd == 'UpdateSellerServiceProductAddon':
+            api.UpdateSellerServiceProductAddon(args.seller,args.service,args.product,args.addon,args.data)
+        if args.cmd == 'GetAllSellerServiceProductAddons':
+            api.GetAllSellerServiceProductAddons(args.seller, args.service)
+
+        # Seller Service Consumptions API
+
+        if args.cmd == 'GetAllSellerServiceConsumptionSubscriptions':
+            api.GetAllSellerServiceConsumptionSubscriptions(args.seller,args.data)
+        if args.cmd == 'SubmitSellerServiceConsumption':
+            api.SubmitSellerServiceConsumption(args.seller,args.data)
+
+        # Seller Service Bulk Consumptions API
+
+        if args.cmd == 'GetStatusOfBulkConsumptionTaskById':
+            api.GetStatusOfBulkConsumptionTaskById(args.seller,args.task)
+        if args.cmd == 'SubmitBulkConsumptionTaskBySellerId':
+            api.SubmitBulkConsumptionTaskBySellerId(args.seller,args.data)
+
+        # Seller Reseller Manual Billing Line API
+
+        if args.cmd == 'GetManualBillingLineById':
+            api.GetManualBillingLineById(args.seller,args.reseller,args.billingline)
+        if args.cmd == 'GetAllManualBillingLinesByResellerId':
+            api.GetAllManualBillingLinesByResellerId(args.seller,args.reseller,args.startdate,args.enddate)
+        if args.cmd == 'CreateManualBillingLineByResellerId':
+            api.CreateManualBillingLineByResellerId(args.seller,args.reseller,args.data)
+        if args.cmd == 'RemoveManualBillingLineById':
+            api.RemoveManualBillingLineById(args.seller, args.reseller,args.billingline)
+
+
+        # Seller Price List API
 
 
     except Exception as e:

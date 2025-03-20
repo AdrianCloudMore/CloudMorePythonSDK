@@ -186,14 +186,14 @@ def RemoveSellerSubscriptionById(sellerId,subscriptionId,removeAction = "Delete"
 
 # Seller Services API
 
-def GetSellerServiceCustomPropertiesById(sellerId,serviceId):
+def GetSellerServiceCustomPropertiesBySellerId(sellerId,serviceId):
     api_instance = swagger_client.SellerServicesApi(api_client=api_client)
     data = api_instance.api_sellers_by_seller_id_services_by_id_custom_properties_data_get(sellerId,serviceId)
     print(data)
     return data
 
 
-def CreateSellerServiceById(sellerId,createSellerServiceViewModel):
+def CreateSellerServiceBySellerId(sellerId,createSellerServiceViewModel):
     api_instance = swagger_client.SellerServicesApi(api_client=api_client)
     data = api_instance.api_sellers_by_seller_id_services_post(sellerId,createSellerServiceViewModel)
     print(data)
@@ -277,7 +277,7 @@ def UpdateSellerServiceProductById(sellerId,serviceId,productId,updateSellerServ
 
 def CreateSellerServiceProductAddon(sellerId,serviceId,productId, createSellerServiceProductAddonViewModel):
     api_instance = swagger_client.SellerServiceProductAddonsApi(api_client=api_client)
-    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_by_id_delete(sellerId,serviceId,productId,createSellerServiceProductAddonViewModel)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_post(sellerId,serviceId,productId,createSellerServiceProductAddonViewModel)
     print(data)
     return data
 
@@ -287,11 +287,79 @@ def RemoveSellerServiceProductAddonById(sellerId,serviceId,productId,addonId):
     print(data)
     return data
 
-def UpdateSellerServiceProductAddon(sellerId,serviceId,productId, updateSellerServiceProductAddonViewModel):
+def UpdateSellerServiceProductAddon(sellerId,serviceId,productId, addonId,updateSellerServiceProductAddonViewModel):
     api_instance = swagger_client.SellerServiceProductAddonsApi(api_client=api_client)
-    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_by_id_put(sellerId,serviceId,productId,updateSellerServiceProductAddonViewModel)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_by_id_put(sellerId,serviceId,productId,addonId,updateSellerServiceProductAddonViewModel)
     print(data)
     return data
+
+def GetAllSellerServiceProductAddons(sellerId,serviceId):
+    api_instance = swagger_client.SellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_by_service_id_products_by_product_id_addons_get(sellerId,serviceId)
+    print(data)
+    return data
+
+# Seller Service Consumptions API
+
+def GetAllSellerServiceConsumptionSubscriptions(sellerId, sellerServiceConsumptionsFilterViewModel):
+    api_instance = swagger_client.SellerServiceConsumptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_consumptions_post(sellerId,sellerServiceConsumptionsFilterViewModel)
+    print(data)
+    return data
+
+def SubmitSellerServiceConsumption(sellerId, sellerServiceConsumptionsCreateViewModel):
+    api_instance = swagger_client.SellerServiceConsumptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_consumptions_put(sellerId,sellerServiceConsumptionsCreateViewModel)
+    print(data)
+    return data
+
+
+# Seller Service Bulk Consumptions API
+
+def GetStatusOfBulkConsumptionTaskById(sellerId, taskId):
+    api_instance = swagger_client.SellerServiceBulkConsumptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_bulkconsumptions_by_task_id_get(sellerId,taskId)
+    print(data)
+    return data
+
+def SubmitBulkConsumptionTaskBySellerId(sellerId, sellerServiceBulkConsumptionViewModel):
+    api_instance = swagger_client.SellerServiceBulkConsumptionsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_services_bulkconsumptions_post(sellerId,sellerServiceBulkConsumptionViewModel)
+    print(data)
+    return data
+
+# Seller Reseller Manual Billing Line API
+
+
+def GetManualBillingLineById(sellerId, resellerId,billingLineId):
+    api_instance = swagger_client.SellerResellersManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_reseller_id_manualbilling_by_id_get(sellerId,resellerId,billingLineId)
+    print(data)
+    return data
+
+def GetAllManualBillingLinesByResellerId(sellerId,resellerId,billingStartDate,billingEndDate):
+    api_instance = swagger_client.SellerResellersManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_reseller_id_manualbilling_get(sellerId,resellerId,billingStartDate,billingEndDate)
+    print(data)
+    return data
+
+def CreateManualBillingLineByResellerId(sellerId, resellerId,manualBillingLineCreateViewModel):
+    api_instance = swagger_client.SellerResellersManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_reseller_id_manualbilling_post(sellerId,resellerId,manualBillingLineCreateViewModel)
+    print(data)
+    return data
+
+def RemoveManualBillingLineById(sellerId, resellerId,billingLineId):
+    api_instance = swagger_client.SellerResellersManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_reseller_id_manualbilling_by_billing_line_id_delete(sellerId,resellerId,billingLineId)
+    print(data)
+    return data
+
+
+# Seller Price List API
+
+
+
 
 
 # resellers / :reseller ID / services / Azure Subscriptions
