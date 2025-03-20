@@ -193,6 +193,29 @@ def main():
         if args.cmd == 'UpdateSellerCustomServiceProductPricesById':
             api.UpdateSellerCustomServiceProductPricesById(args.seller, args.service, args.data)
 
+        # Seller Organizations API
+
+        if args.cmd == 'GetSellerOrganizationById':
+            api.GetSellerOrganizationById(args.seller, args.organization)
+
+        # Seller Email Templates API
+
+        if args.cmd == 'GetAllSellerEmailTemplates':
+            api.GetAllSellerEmailTemplates(args.seller)
+
+        # Seller Brokers API
+
+        if args.cmd == 'CreateSellerReseller':
+            api.GetAllSellerAssociatedResellers(args.seller)
+        if args.cmd == 'RemoveSellerResellerById':
+            api.RemoveSellerResellerById(args.seller, args.reseller)
+        if args.cmd == 'GetSellerResellerById':
+            api.GetSellerResellerById(args.seller, args.reseller)
+        if args.cmd == 'UpdateSellerResellerById':
+            api.UpdateSellerResellerById(args.seller, args.reseller,args.data)
+        if args.cmd == 'GetAllSellerAssociatedResellers':
+            api.GetAllSellerAssociatedResellers(args.seller)
+
 
     except Exception as e:
         print(e)

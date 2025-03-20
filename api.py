@@ -371,6 +371,55 @@ def UpdateSellerCustomServiceProductPricesById(sellerId, serviceId ,sellerPriceL
     print(data)
     return data
 
+# Seller Organizations API
+
+
+def GetSellerOrganizationById(sellerId, organizationId):
+    api_instance = swagger_client.SellerOrganizationsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_seller_organizations_by_id_get(sellerId,organizationId)
+    print(data)
+    return data
+
+# Seller Email Templates API
+
+def GetAllSellerEmailTemplates(sellerId):
+    api_instance = swagger_client.SellerEmailTemplatesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_settings_email_templates_get(sellerId)
+    print(data)
+    return data
+
+# Seller Brokers API
+
+def RemoveSellerResellerById(sellerId,resellerId):
+    api_instance = swagger_client.SellerBrokersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_brokers_by_id_delete(sellerId, resellerId)
+    print(data)
+    return data
+
+def GetSellerResellerById(sellerId,resellerId):
+    api_instance = swagger_client.SellerBrokersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_brokers_by_id_get(sellerId, resellerId)
+    print(data)
+    return data
+
+def UpdateSellerResellerById(sellerId,resellerId,sellerBrokerUpdateViewModel):
+    api_instance = swagger_client.SellerBrokersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_brokers_by_id_put(sellerId, resellerId,sellerBrokerUpdateViewModel)
+    print(data)
+    return data
+
+def GetAllSellerAssociatedResellers(sellerId):
+    api_instance = swagger_client.SellerBrokersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_brokers_get(sellerId)
+    print(data)
+    return data
+
+def CreateSellerReseller(sellerId,sellerBrokerCreateViewModel):
+    api_instance = swagger_client.SellerBrokersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_brokers_post(sellerId,sellerBrokerCreateViewModel)
+    print(data)
+    return data
+
 
 
 # resellers / :reseller ID / services / Azure Subscriptions
