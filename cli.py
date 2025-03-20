@@ -40,9 +40,6 @@ def main():
         auth_config = AuthConfig(username=args.username,password=args.password,client_secret=args.secret)
         api.authenticate(auth_config)
 
-        if args.cmd == 'GetSellerResellerById':
-            api.getSellerResellerById(args.seller,args.reseller)
-
         # WebHooks API
         if args.cmd == 'GetSellerWebHookById':
             api.getSellerWebhookById(args.seller, args.webhook)
@@ -215,6 +212,31 @@ def main():
             api.UpdateSellerResellerById(args.seller, args.reseller,args.data)
         if args.cmd == 'GetAllSellerAssociatedResellers':
             api.GetAllSellerAssociatedResellers(args.seller)
+
+        # Resellers API
+
+        if args.cmd == 'GetSellerResellerById':
+            api.GetSellerResellerById(args.seller, args.reseller)
+        if args.cmd == 'GetAllSellerResellers':
+            api.GetAllSellerResellers(args.seller)
+
+        # Seller Billing Reports API
+
+        if args.cmd == 'GetSellerResellerMonthlyBillingReportByResellerId':
+            api.GetSellerResellerMonthlyBillingReportByResellerId(args.seller, args.data)
+
+        # Seller Administrator API
+
+        if args.cmd == 'GetSellerAdministratorById':
+            api.GetSellerAdministratorById(args.seller,args.user)
+        if args.cmd == 'GetAllSellerAdministrators':
+            api.GetAllSellerAdministrators(args.seller)
+        if args.cmd == 'RemoveSellerAdministratorById':
+            api.RemoveSellerAdministratorById(args.seller,args.user)
+        if args.cmd == 'UpdateSellerAdministratorById':
+            api.UpdateSellerAdministratorById(args.seller, args.user,args.data)
+        if args.cmd == 'CreateSellerAdministrator':
+            api.CreateSellerAdministrator(args.seller,args.data)
 
 
     except Exception as e:

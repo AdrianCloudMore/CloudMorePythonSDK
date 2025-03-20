@@ -31,12 +31,7 @@ def authenticate(auth_config):
         print(response)
         raise Exception("Failed to authenticate with CloudMore API")
 
-def getSellerResellerById(sellerId, resellerId):
-    api_instance = swagger_client.ResellersApi(api_client=api_client)
-    data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(sellerId,resellerId)
-    print(data)
-    return data
-
+# WebHooks API
 
 def getSellerWebhookById(sellerId,webhookId):
     api_instance = swagger_client.WebHooksApi(api_client=api_client)
@@ -419,6 +414,62 @@ def CreateSellerReseller(sellerId,sellerBrokerCreateViewModel):
     data = api_instance.api_sellers_by_seller_id_brokers_post(sellerId,sellerBrokerCreateViewModel)
     print(data)
     return data
+
+# Seller Billing Reports API
+
+def GetSellerResellerMonthlyBillingReportByResellerId(sellerId,sellerBrokerCreateViewModel):
+    api_instance = swagger_client.SellerBillingReportsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_billing_monthly_billing_per_reseller_get(sellerId,sellerBrokerCreateViewModel)
+    print(data)
+    return data
+
+# Seller Administrator API
+
+def GetSellerAdministratorById(sellerId,userId):
+    api_instance = swagger_client.SellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_seller_administrators_by_id_get(sellerId,userId)
+    print(data)
+    return data
+
+def GetAllSellerAdministrators(sellerId):
+    api_instance = swagger_client.SellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_seller_administrators_get(sellerId)
+    print(data)
+    return data
+
+def RemoveSellerAdministratorById(sellerId,userId):
+    api_instance = swagger_client.SellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_seller_administrators_by_id_delete(sellerId,userId)
+    print(data)
+    return data
+
+def UpdateSellerAdministratorById(sellerId,userId,sellerAdministratorUpdateViewModel):
+    api_instance = swagger_client.SellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_seller_administrators_by_id_put(sellerId,userId,sellerAdministratorUpdateViewModel)
+    print(data)
+    return data
+
+def CreateSellerAdministrator(sellerId,sellerAdministratorCreateViewModel):
+    api_instance = swagger_client.SellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_seller_administrators_post(sellerId,sellerAdministratorCreateViewModel)
+    print(data)
+    return data
+
+# Resellers API
+
+def GetSellerResellerById(sellerId, resellerId):
+    api_instance = swagger_client.ResellersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_resellers_by_id_get(sellerId,resellerId)
+    print(data)
+    return data
+
+def GetAllSellerResellers(sellerId):
+    api_instance = swagger_client.ResellersApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_resellers_get(sellerId)
+    print(data)
+    return data
+
+# Reseller Services API
 
 
 
