@@ -20,10 +20,12 @@ If the CloudMore API has been updated, use the update.py script to generate a ne
 client. It will check the swagger document version against the version in api_version.txt
 and update if necessary.
 
+Note that the auto-generated client also comes with API documentation, located in python-client/docs
+
 ## Package 
 
 Next you will need to package the swagger client into a python package (.egg), note that you can 
-change the name and version of the package in setup.py.
+change the name and version of the package in python-client/setup.py.
 
 To package the client, go into the python-client folder and run the following command:
 
@@ -39,7 +41,7 @@ it will be named something like swagger_client-1.0.0-****.egg , in the python-cl
 Once the package is installed you can import the package, and run the sample cli.py script (see samples below)
 
 ```python
-    import swagger_client
+import swagger_client
 ```
 
 
@@ -57,6 +59,59 @@ The authenticate method in api.py will store the value of the expires header
 
 See 'cli,py' and 'api.py' for examples on how to use the swagger client to 
 call different functions.
+
+## CLI
+
+You can use the included CLI client in cli.py to call the CloudMore API. 
+The script in cli.py makes use of functions defined in api.py. 
+Note that you may need to change the host (base url), configured in api.py, 
+by default it's set to: https://api-dev.cloudmore.com
+
+```shell
+python3 cli.py -u CloudMoreUser -p CloudMorePassword -s CloudMoreAPISecret -c GetAllManualBillingLinesByResellerId --start-date 03-18-2025 --end-date 03-20-2025 --reseller 3cd64bae-1602-49ce-9d04-d034d4a046ea -seller f28a9284-0ce3-418f-a2f7-f4e3b80c6533
+```
+
+Run the following command to display usage instructions
+
+```shell
+python3 cli.py -h
+```
+
+```shell
+usage: CloudMoreCLI [-h] -c Command (API Function Name) [-seller Seller ID] [-reseller Reseller ID] [-organization Organization ID] [-subscription Subscription ID]
+                    [-service Service ID] [-webhook WebHook ID] [-user User ID] [-task Task ID] [-product Product ID] [-addon Addon ID] [-billing-line Billing Line ID]
+                    [-start-date Start Date] [-end-date End Date] [-show-active Show only active *] [-remove-action Remove subscription action, either delete or cancel]
+                    -u Auth: CloudMore Username -p Auth: CloudMore Password -s Auth: API Secret [-client Auth: Client ID] [-g Auth: Grant Type] [-scope Auth: Scope]
+                    [-j Request Body as JSON]
+
+CloudMore REST API Client CLI
+
+options:
+  -h, --help  show this help message and exit
+  -c Command (API Function Name), --cmd Command (API Function Name)
+  -seller Seller ID, --seller Seller ID
+  -reseller Reseller ID, --reseller Reseller ID
+  -organization Organization ID, --organization Organization ID
+  -subscription Subscription ID, --subscription Subscription ID
+  -service Service ID, --service Service ID
+  -webhook WebHook ID, --webhook WebHook ID
+  -user User ID, --user User ID
+  -task Task ID, --task Task ID
+  -product Product ID, --product Product ID
+  -addon Addon ID, --addon Addon ID
+  -billing-line Billing Line ID, --billing-line Billing Line ID
+  -start-date Start Date, --start-date Start Date
+  -end-date End Date, --end-date End Date
+  -show-active Show only active *, --show-active Show only active *
+  -remove-action Remove subscription action, either delete or cancel, --remove-action Remove subscription action, either delete or cancel
+  -u Auth: CloudMore Username, --username Auth: CloudMore Username
+  -p Auth: CloudMore Password, --password Auth: CloudMore Password
+  -s Auth: API Secret, --secret Auth: API Secret
+  -client Auth: Client ID, --client-id Auth: Client ID
+  -g Auth: Grant Type, --grant-type Auth: Grant Type
+  -scope Auth: Scope, --scope Auth: Scope
+  -j Request Body as JSON, --data Request Body as JSON
+```
 
 # Cloudmore Swagger Client Documentation
 
