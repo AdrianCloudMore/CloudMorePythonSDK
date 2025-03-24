@@ -5,7 +5,7 @@ from auth_config import AuthConfig
 
 args = ""
 parser = argparse.ArgumentParser(prog='CloudMoreCLI', description="CloudMore REST API Client CLI")
-parser.add_argument("-c","--cmd",metavar="Command (API Function Name)",required=True)
+parser.add_argument("-c","--cmd",metavar="Command/API Function: Run 'python3 cli.py -c List' to display a list of available commands.",required=True)
 parser.add_argument("-seller","--seller",metavar="Seller ID",required=False)
 parser.add_argument("-reseller","--reseller",metavar="Reseller ID",required=False)
 parser.add_argument("-organization","--organization",metavar="Organization ID",required=False)
@@ -32,7 +32,15 @@ parser.add_argument("-j","--data",metavar="Request Body as JSON",required=False)
 args = parser.parse_args()
 
 
-
+# All Commands
+commands = [
+                {"GetSellerWebHookById" : { "args": ["seller","webhook"],"info": "Get Seller WebHook By ID" }},
+                {"GetAllSellerWebHooks" : { "args": ["seller"],"info": "Get All Seller WebHooks" }},
+                {"CreateWebHook" : { "args": ["seller","data [sellerWebHookCreateViewModel]"],"info": "Create New WebHook For Seller" }},
+                {"UpdateWebHook": {"args": ["seller", "webhook", "data [sellerWebHookUpdateViewModel]"],"info": "Update Seller WebHook By ID"}},
+                {"DeleteWebHook": {"args": ["seller", "webhook"],"info": "Delete Seller WebHook By ID"}},
+                {"GetAllResellerOrganisations": {"args": ["reseller", "show-active"], "info": "Get All Resellers Organizations"}}
+            ]
 
 def main():
     try:
@@ -41,6 +49,19 @@ def main():
         print("")
         auth_config = AuthConfig(username=args.username,password=args.password,client_secret=args.secret)
         api.authenticate(auth_config)
+
+
+
+        if args.cmd == "List":
+            for cmd in commands:
+                keys = list(cmd.keys())
+                name = keys.__getitem__(0)
+                inner = cmd.get(name)
+                print("_______________________________________________________________________")
+                print("Command: %s" % name)
+                print("Arguments: %s" % inner.get("args").__str__())
+                print("Description: %s" % inner.get("info"))
+                print("------------------------------------------------------------------------")
 
         # WebHooks API
         if args.cmd == 'GetSellerWebHookById':
