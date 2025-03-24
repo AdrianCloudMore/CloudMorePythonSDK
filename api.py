@@ -548,6 +548,35 @@ def RemoveResellerCustomServiceProduct(resellerId,serviceId,productId):
 
 # Reseller Service Product Addons API
 
+def GetResellerCustomServiceProductAddon(resellerId,serviceId,productId,addonId):
+    api_instance = swagger_client.ResellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_product_id_addons_by_id_get(resellerId,serviceId,productId,addonId)
+    print(data)
+    return data
+
+def GetAllResellerCustomServiceProductAddons(resellerId,serviceId,productId):
+    api_instance = swagger_client.ResellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_product_id_addons_get(resellerId,serviceId,productId)
+    print(data)
+    return data
+
+def RemoveResellerCustomServiceProductAddon(resellerId,serviceId,productId,addonId):
+    api_instance = swagger_client.ResellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_product_id_addons_by_id_delete(resellerId,serviceId,productId,addonId)
+    print(data)
+    return data
+
+def UpdateResellerCustomServiceProductAddon(resellerId,serviceId,productId,addonId,resellerServiceProductAddonUpdateViewModel):
+    api_instance = swagger_client.ResellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_product_id_addons_by_id_put(resellerId,serviceId,productId,addonId,resellerServiceProductAddonUpdateViewModel)
+    print(data)
+    return data
+
+def CreateResellerCustomServiceProductAddon(resellerId,serviceId,productId,resellerServiceProductAddonCreateViewModel):
+    api_instance = swagger_client.ResellerServiceProductAddonsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_products_by_product_id_addons_post(resellerId,serviceId,productId,resellerServiceProductAddonCreateViewModel)
+    print(data)
+    return data
 
 
 # resellers / :reseller ID / services / Azure Subscriptions

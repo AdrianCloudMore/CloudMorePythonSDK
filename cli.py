@@ -270,6 +270,20 @@ def main():
         if args.cmd == 'RemoveResellerCustomServiceProduct':
             api.RemoveResellerCustomServiceProduct(args.reseller,args.service,args.product)
 
+        # Reseller Service Product Addons API
+
+        if args.cmd == 'GetResellerCustomServiceProductAddon':
+            api.GetResellerCustomServiceProductAddon(args.reseller,args.service,args.product,args.addon)
+        if args.cmd == 'GetAllResellerCustomServiceProducts':
+            api.GetAllResellerCustomServiceProductAddons(args.reseller,args.service)
+        if args.cmd == 'CreateResellerCustomServiceProductAddon':
+            api.CreateResellerCustomServiceProduct(args.reseller,args.service,args.product,args.data)
+        if args.cmd == 'UpdateResellerCustomServiceProductAddon':
+            api.UpdateResellerCustomServiceProduct(args.reseller, args.service,args.product,args.addon,args.data)
+        if args.cmd == 'RemoveResellerCustomServiceProductAddon':
+            api.RemoveResellerCustomServiceProduct(args.reseller,args.service,args.product,args.addon)
+
+
     except Exception as e:
         print(e)
         return
