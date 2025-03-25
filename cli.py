@@ -39,8 +39,15 @@ commands = [
                 {"CreateWebHook" : { "args": ["seller","data [sellerWebHookCreateViewModel]"],"info": "Create New WebHook For Seller" }},
                 {"UpdateWebHook": {"args": ["seller", "webhook", "data [sellerWebHookUpdateViewModel]"],"info": "Update Seller WebHook By ID"}},
                 {"DeleteWebHook": {"args": ["seller", "webhook"],"info": "Delete Seller WebHook By ID"}},
-                {"GetAllResellerOrganisations": {"args": ["reseller", "show-active"], "info": "Get All Resellers Organizations"}}
-            ]
+                {"GetAllResellerOrganisations": {"args": ["reseller", "show-active"], "info": "Get All Resellers Organizations"}},
+                {"GetResellerOrganizationById": {"args": ["reseller", "organization"], "info": "Get Reseller Organization By ID"}},
+                {"CreateResellerOrganization": {"args": ["reseller", "data [organizationCreateViewModel]"], "info": "Create New Organization For Reseller"}},
+                {"UpdateResellerOrganizationById": {"args": ["reseller", "organization","data [OrganizationUpdateViewModel]"], "info": "Update Reseller Organization By ID"}},
+                {"DeleteResellerOrganizationById": {"args": ["reseller", "organization"],"info": "Delete Reseller Organization By ID"}},
+                {"CreateResellerOrganizationUser": {"args": ["reseller", "organization", "data [createResellerOrganizationUserViewModel]"],"info": "Create Reseller Organization User"}},
+
+
+]
 
 def main():
     try:
@@ -304,6 +311,12 @@ def main():
         if args.cmd == 'RemoveResellerCustomServiceProductAddon':
             api.RemoveResellerCustomServiceProduct(args.reseller,args.service,args.product,args.addon)
 
+        # Reseller Service Consumptions API
+
+        if args.cmd == 'GetAllResellerServiceConsumptions':
+            api.GetAllResellerServiceConsumptions(args.reseller, args.data)
+        if args.cmd == 'CreateResellerServiceConsumption':
+            api.CreateResellerServiceConsumption(args.reseller,args.data)
 
     except Exception as e:
         print(e)

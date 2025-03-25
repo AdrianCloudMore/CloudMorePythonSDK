@@ -578,6 +578,19 @@ def CreateResellerCustomServiceProductAddon(resellerId,serviceId,productId,resel
     print(data)
     return data
 
+# Reseller Service Consumptions API
+
+def GetAllResellerServiceConsumptions(resellerId,resellerServiceConsumptionsFilterViewModel):
+    api_instance = swagger_client.ResellerServiceConsumptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_consumptions_post(resellerId,resellerServiceConsumptionsFilterViewModel)
+    print(data)
+    return data
+
+def CreateResellerServiceConsumption(resellerId,resellerServiceConsumptionsCreateViewModel):
+    api_instance = swagger_client.ResellerServiceConsumptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_consumptions_put(resellerId,resellerServiceConsumptionsCreateViewModel)
+    print(data)
+    return data
 
 # resellers / :reseller ID / services / Azure Subscriptions
 
