@@ -812,5 +812,146 @@ def DeleteOrganizationUserGroupById(resellerId,organizationId):
     print(data)
     return data
 
+# Organization User Group Members API
+
+def GetOrganizationUserGroupMemberById(resellerId,organizationId,groupId, memberId):
+    api_instance = swagger_client.OrganizationUserGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_group_id_members_get(resellerId,organizationId,groupId,memberId)
+    print(data)
+    return data
+
+
+def AddOrganizationUserGroupMember(resellerId,organizationId,groupId, organizationUserGroupMemberAddViewModel):
+    api_instance = swagger_client.OrganizationUserGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_group_id_members_post(resellerId,organizationId,groupId,organizationUserGroupMemberAddViewModel)
+    print(data)
+    return data
+
+def GetAllOrganizationUserGroupMembers(resellerId,organizationId,groupId):
+    api_instance = swagger_client.OrganizationUserGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_group_id_members_get(resellerId,organizationId,groupId)
+    print(data)
+    return data
+
+def DeleteOrganizationUserGroupMemberById(resellerId,organizationId,groupId,memberId):
+    api_instance = swagger_client.OrganizationUserGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_group_id_members_by_id_delete(resellerId,organizationId,groupId,memberId)
+    print(data)
+    return data
+
+
+# Organization Subscription Users API
+
+def RemoveOrganizationUserFromSubscription(resellerId,organizationId,serviceId,subscriptionId,userId):
+    api_instance = swagger_client.OrganizationSubscriptionUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_users_by_user_id_delete(resellerId,organizationId,serviceId,subscriptionId,userId)
+    print(data)
+    return data
+
+def GetAllOrganizationUsersAssignedToSubscription(resellerId,organizationId,serviceId,subscriptionId):
+    api_instance = swagger_client.OrganizationSubscriptionUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_users_get(resellerId,organizationId,serviceId,subscriptionId)
+    print(data)
+    return data
+
+def UpdateOrganizationUserAssignedToSubscription(resellerId,organizationId,serviceId,subscriptionId,organizationServiceSubscriptionUserUpdateViewModel):
+    api_instance = swagger_client.OrganizationSubscriptionUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_users_put(resellerId,organizationId,serviceId,subscriptionId,organizationServiceSubscriptionUserUpdateViewModel)
+    print(data)
+    return data
+
+def AssignOrganizationUserToSubscription(resellerId,organizationId,serviceId,subscriptionId,organizationServiceSubscriptionUserCreateViewModel):
+    api_instance = swagger_client.OrganizationSubscriptionUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_users_post(resellerId,organizationId,serviceId,subscriptionId,organizationServiceSubscriptionUserCreateViewModel)
+    print(data)
+    return data
+
+# Organization Subscription History API
+
+def GetOrganizationSubscriptionHistoryById(resellerId,organizationId,serviceId,subscriptionId):
+    api_instance = swagger_client.OrganizationSubscriptionHistoryApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_history_by_subscription_id_get(resellerId,organizationId,serviceId,subscriptionId)
+    print(data)
+    return data
+
+# Organization Custom Services API
+
+def GetOrganizationCustomServiceById(resellerId,organizationId,serviceId):
+    api_instance = swagger_client.OrganizationServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_get(resellerId,organizationId,serviceId)
+    print(data)
+    return data
+
+
+def GetAllOrganizationCustomServices(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def AddOrganizationCustomServiceById(resellerId,organizationId, organizationServiceAddViewModel):
+    api_instance = swagger_client.OrganizationServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_post(resellerId,organizationId,organizationServiceAddViewModel)
+    print(data)
+    return data
+
+def UpdateOrganizationCustomServiceCustomPropertyData(resellerId,organizationId,serviceId, organizationServiceUpdateViewModel):
+    api_instance = swagger_client.OrganizationServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_patch(resellerId,organizationId,serviceId,organizationServiceUpdateViewModel)
+    print(data)
+    return data
+
+def UpdateOrganizationCustomServiceById(resellerId,organizationId,serviceId, organizationServiceUpdateViewModel):
+    api_instance = swagger_client.OrganizationServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_put(resellerId,organizationId,serviceId,organizationServiceUpdateViewModel)
+    print(data)
+    return data
+
+def RemoveOrganizationCustomServiceById(resellerId,organizationId,serviceId):
+    api_instance = swagger_client.OrganizationServicesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_delete(resellerId,organizationId,serviceId)
+    print(data)
+    return data
+
+# Organization Service Subscriptions API
+
+def GetOrganizationCustomServiceSubscriptionById(resellerId,organizationId,serviceId,subscriptionId):
+    api_instance = swagger_client.OrganizationServiceSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_get(resellerId,organizationId,serviceId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllOrganizationCustomServiceSubscriptions(resellerId,organizationId,serviceId):
+    api_instance = swagger_client.OrganizationServiceSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_get(resellerId,organizationId,serviceId)
+    print(data)
+    return data
+
+def CreateOrganizationCustomServiceSubscription(resellerId,organizationId,serviceId,organizationServiceSubscriptionCreateViewModel):
+    api_instance = swagger_client.OrganizationServiceSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_post(resellerId,organizationId,serviceId,organizationServiceSubscriptionCreateViewModel)
+    print(data)
+    return data
+
+def CancelOrganizationCustomServiceSubscriptionById(resellerId,organizationId,serviceId,subscriptionId):
+    api_instance = swagger_client.OrganizationServiceSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_delete(resellerId,organizationId,serviceId,subscriptionId)
+    print(data)
+    return data
+
+def UpdateOrganizationCustomServiceSubscriptionById(resellerId,organizationId,serviceId,subscriptionId,organizationServiceSubscriptionUpdateViewModel):
+    api_instance = swagger_client.OrganizationServiceSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_subscriptions_by_subscription_id_put(resellerId,organizationId,serviceId,subscriptionId,organizationServiceSubscriptionUpdateViewModel)
+    print(data)
+    return data
+
+# Organization Service Products API
+
+def GetAllOrganizationCustomServiceProducts(resellerId,organizationId,serviceId):
+    api_instance = swagger_client.OrganizationServiceProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_products_get(resellerId,organizationId,serviceId)
+    print(data)
+    return data
+
 
 
