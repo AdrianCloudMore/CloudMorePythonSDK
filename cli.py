@@ -17,6 +17,7 @@ parser.add_argument("-task","--task",metavar="Task ID",required=False)
 parser.add_argument("-product","--product",metavar="Product ID",required=False)
 parser.add_argument("-addon","--addon",metavar="Addon ID",required=False)
 parser.add_argument("-billing-line","--billing-line",metavar="Billing Line ID",required=False)
+parser.add_argument("-payment-method-id","--payment-method-id",metavar="Payment Method ID",required=False)
 parser.add_argument("-start-date","--start-date",metavar="Start Date",required=False)
 parser.add_argument("-end-date","--end-date",metavar="End Date",required=False)
 parser.add_argument("-show-active","--show-active",metavar="Show only active *",required=False)
@@ -39,15 +40,19 @@ commands = [
                 {"CreateWebHook" : { "args": ["seller","data [sellerWebHookCreateViewModel]"],"info": "Create New WebHook For Seller" }},
                 {"UpdateWebHook": {"args": ["seller", "webhook", "data [sellerWebHookUpdateViewModel]"],"info": "Update Seller WebHook By ID"}},
                 {"DeleteWebHook": {"args": ["seller", "webhook"],"info": "Delete Seller WebHook By ID"}},
-                {"GetAllResellerOrganisations": {"args": ["reseller", "show-active"], "info": "Get All Resellers Organizations"}},
+                {"GetAllResellerOrganisations": {"args": ["reseller", "show-active"], "info": "Get All Reseller Organizations"}},
                 {"GetResellerOrganizationById": {"args": ["reseller", "organization"], "info": "Get Reseller Organization By ID"}},
                 {"CreateResellerOrganization": {"args": ["reseller", "data [organizationCreateViewModel]"], "info": "Create New Organization For Reseller"}},
                 {"UpdateResellerOrganizationById": {"args": ["reseller", "organization","data [OrganizationUpdateViewModel]"], "info": "Update Reseller Organization By ID"}},
                 {"DeleteResellerOrganizationById": {"args": ["reseller", "organization"],"info": "Delete Reseller Organization By ID"}},
                 {"CreateResellerOrganizationUser": {"args": ["reseller", "organization", "data [createResellerOrganizationUserViewModel]"],"info": "Create Reseller Organization User"}},
-
+                {"GetResellerOrganizationUserById": {"args": ["reseller", "organization", "user"],"info": "Get Reseller Organization User By ID"}},
+                {"GetAllResellerOrganizationUsers": {"args": ["reseller", "organization"],"info": "Get All Reseller Organization Users"}},
+                {"RemoveResellerOrganizationUserById": {"args": ["reseller", "organization", "user"],"info": "Delete Reseller Organization User By ID"}},
+                {"UpdateResellerOrganizationUserById": {"args": ["reseller", "organization", "user", "data [updateResellerOrganizationUserViewModel]"],"info": "Update Reseller Organization User By ID"}}
 
 ]
+
 
 def main():
     try:
@@ -317,6 +322,35 @@ def main():
             api.GetAllResellerServiceConsumptions(args.reseller, args.data)
         if args.cmd == 'CreateResellerServiceConsumption':
             api.CreateResellerServiceConsumption(args.reseller,args.data)
+
+        # Reseller Roles API
+
+        if args.cmd == 'GetAllResellerAdministratorRoles':
+            api.GetAllResellerAdministratorRoles(args.reseller)
+
+        # Reseller Price List API
+
+        if args.cmd == 'GetResellerServiceSubscriptionCommitmentPrice':
+            api.GetResellerServiceSubscriptionCommitmentPrice(args.reseller,args.service,args.organization,args.subscription)
+        if args.cmd == 'GetAllResellerProductPricesByServiceId':
+            api.GetAllResellerProductPricesByServiceId(args.reseller,args.service,args.currency)
+        if args.cmd == 'GetResellerServicePostRenewalPriceBySubscriptionId':
+            api.GetResellerServicePostRenewalPriceBySubscriptionId(args.reseller,args.service,args.organization,args.subscription)
+        if args.cmd == 'UpdateResellerPriceListByServiceId':
+            api.UpdateResellerPriceListByServiceId(args.reseller, args.service,args.data)
+
+        # Reseller Payment Methods API
+
+        if args.cmd == 'CreateResellerPaymentMethod':
+            api.CreateResellerPaymentMethod(args.reseller,args.data)
+        if args.cmd == 'DeleteResellerPaymentMethodById':
+            api.DeleteResellerPaymentMethodById(args.reseller,args.payment_method_id)
+        if args.cmd == 'GetResellerPaymentMethodById':
+            api.GetResellerPaymentMethodById(args.reseller,args.payment_method_id)
+        if args.cmd == 'UpdateResellerPaymentMethodById':
+            api.UpdateResellerPaymentMethodById(args.reseller, args.payment_method_id,args.data)
+        if args.cmd == 'GerAllResellerPaymentMethods':
+            api.GerAllResellerPaymentMethods(args.reseller)
 
     except Exception as e:
         print(e)

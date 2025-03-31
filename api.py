@@ -592,6 +592,76 @@ def CreateResellerServiceConsumption(resellerId,resellerServiceConsumptionsCreat
     print(data)
     return data
 
+
+# Reseller Roles API
+
+
+def GetAllResellerAdministratorRoles(resellerId):
+    api_instance = swagger_client.ResellerRolesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_reseller_roles_get(resellerId)
+    print(data)
+    return data
+
+
+# Reseller Price List API
+
+def GetResellerServiceSubscriptionCommitmentPrice(resellerId,serviceId,organizationId,subscriptionId):
+    api_instance = swagger_client.ResellerPriceListApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_pricelist_commitment_price_get(resellerId,serviceId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllResellerProductPricesByServiceId(resellerId,serviceId,currencyCode):
+    api_instance = swagger_client.ResellerPriceListApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_pricelist_get(resellerId,serviceId,currencyCode)
+    print(data)
+    return data
+
+def GetResellerServicePostRenewalPriceBySubscriptionId(resellerId,serviceId,organizationId,subscriptionId):
+    api_instance = swagger_client.ResellerPriceListApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_pricelist_post_renewal_price_get(resellerId,serviceId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def UpdateResellerPriceListByServiceId(resellerId,serviceId,brokerPriceListUpdateViewModel):
+    api_instance = swagger_client.ResellerPriceListApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_by_service_id_pricelist_put(resellerId,serviceId,brokerPriceListUpdateViewModel)
+    print(data)
+    return data
+
+# Reseller Payment Methods API
+
+def CreateResellerPaymentMethod(resellerId, resellerPaymentMethodCreateViewModel):
+    api_instance = swagger_client.ResellerPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_paymentmethods_post(resellerId,resellerPaymentMethodCreateViewModel)
+    print(data)
+    return data
+
+def DeleteResellerPaymentMethodById(resellerId,paymentMethodId):
+    api_instance = swagger_client.ResellerPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_paymentmethods_by_id_delete(resellerId,paymentMethodId)
+    print(data)
+    return data
+
+def GetResellerPaymentMethodById(resellerId,paymentMethodId):
+    api_instance = swagger_client.ResellerPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_paymentmethods_by_id_get(resellerId,paymentMethodId)
+    print(data)
+    return data
+
+def UpdateResellerPaymentMethodById(resellerId,paymentMethodId,resellerPaymentMethodUpdateViewModel):
+    api_instance = swagger_client.ResellerPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_paymentmethods_by_id_put(resellerId,paymentMethodId,resellerPaymentMethodUpdateViewModel)
+    print(data)
+    return data
+
+def GerAllResellerPaymentMethods(resellerId):
+    api_instance = swagger_client.ResellerPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_paymentmethods_get(resellerId)
+    print(data)
+    return data
+
+
 # resellers / :reseller ID / services / Azure Subscriptions
 
 
