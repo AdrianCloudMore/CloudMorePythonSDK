@@ -64,7 +64,7 @@ def deleteWebHook(sellerId,webhookId):
     return data
 
 
-# Resellers / :Reseller ID / Organizations
+# Organizations API
 
 
 def getAllResellerOrganizations(resellerId, showActive = True):
@@ -662,11 +662,155 @@ def GerAllResellerPaymentMethods(resellerId):
     return data
 
 
-# resellers / :reseller ID / services / Azure Subscriptions
+# Reseller Organization Groups API
 
 
-def getResellerAzureSubscriptions(resellerId):
+def GetAllResellerOrganizationGroupById(resellerId):
+    api_instance = swagger_client.ResellerOrganizationGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_get(resellerId)
+    print(data)
+    return data
+
+def CreateResellerOrganizationGroupById(resellerId,resellerOrganizationGroupCreateViewModel):
+    api_instance = swagger_client.ResellerOrganizationGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_post(resellerId,resellerOrganizationGroupCreateViewModel)
+    print(data)
+    return data
+
+def GetResellerOrganizationGroupById(resellerId, groupId):
+    api_instance = swagger_client.ResellerOrganizationGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_by_id_get(resellerId, groupId)
+    print(data)
+    return data
+
+def UpdateResellerOrganizationGroupById(resellerId, groupId,resellerOrganizationGroupUpdateViewModel):
+    api_instance = swagger_client.ResellerOrganizationGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_by_id_put(resellerId, groupId,resellerOrganizationGroupUpdateViewModel)
+    print(data)
+    return data
+
+def DeleteResellerOrganizationGroupById(resellerId, groupId):
+    api_instance = swagger_client.ResellerOrganizationGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_by_id_delete(resellerId, groupId)
+    print(data)
+    return data
+
+# Reseller Organization Group Members API
+
+def AddNewResellerOrganizationGroupMember(resellerId, groupId, resellerOrganizationGroupMemberAddViewModel):
+    api_instance = swagger_client.ResellerOrganizationGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_by_group_id_members_post(resellerId, groupId,resellerOrganizationGroupMemberAddViewModel)
+    print(data)
+    return data
+
+def GetResellerOrganizationGroupMembersByGroupId(resellerId, groupId):
+    api_instance = swagger_client.ResellerOrganizationGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_by_group_id_members_get(resellerId, groupId)
+    print(data)
+    return data
+
+def DeleteResellerOrganizationGroupMemberById(resellerId, memberId):
+    api_instance = swagger_client.ResellerOrganizationGroupMembersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organization_groups_by_group_id_members_by_id_delete(resellerId, memberId)
+    print(data)
+    return data
+
+# Reseller EMail Templates API
+
+def GetAllResellerEmailTemplates(resellerId):
+    api_instance = swagger_client.ResellerEmailTemplatesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_settings_email_templates_get(resellerId)
+    print(data)
+    return data
+
+# Reseller CSP Subscriptions API
+
+def GetAllResellerCSPSubscriptions(resellerId):
+    api_instance = swagger_client.ResellerCspSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_csp_subscriptions_get(resellerId)
+    print(data)
+    return data
+
+# Reseller CSP NCE Subscriptions API
+
+def GetAllResellerCSPNCESubscriptions(resellerId):
+    api_instance = swagger_client.ResellerCspNceSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_csp_nce_subscriptions_get(resellerId)
+    print(data)
+    return data
+
+
+# Reseller Azure Subscriptions API
+
+def GetAllResellerAzureSubscriptions(resellerId):
     api_instance = swagger_client.ResellerAzureSubscriptionsApi(api_client=api_client)
     data = api_instance.api_resellers_by_reseller_id_services_azure_subscriptions_get(resellerId)
     print(data)
     return data
+
+# Reseller Administrators API
+
+def GetAllResellerAdministrators(resellerId):
+    api_instance = swagger_client.ResellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_reseller_administrators_get(resellerId)
+    print(data)
+    return data
+
+def GetResellerAdministratorById(resellerId,userId):
+    api_instance = swagger_client.ResellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_reseller_administrators_by_id_get(resellerId,userId)
+    print(data)
+    return data
+
+def CreateResellerAdministratorById(resellerId,administratorCreateViewModel):
+    api_instance = swagger_client.ResellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_reseller_administrators_post(resellerId,administratorCreateViewModel)
+    print(data)
+    return data
+
+def UpdateResellerAdministratorById(resellerId,userId,administratorUpdateViewModel):
+    api_instance = swagger_client.ResellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_reseller_administrators_by_id_put(resellerId,userId,administratorUpdateViewModel)
+    print(data)
+    return data
+
+def DeleteResellerAdministratorById(resellerId,userId):
+    api_instance = swagger_client.ResellerAdministratorsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_reseller_administrators_by_id_delete(resellerId,userId)
+    print(data)
+    return data
+
+# Organization User Groups API
+
+def GetAllOrganizationUserGroups(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationUserGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def CreateOrganizationUserGroup(resellerId,organizationId,organizationUserGroupCreateViewModel):
+    api_instance = swagger_client.OrganizationUserGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_post(resellerId,organizationId, organizationUserGroupCreateViewModel)
+    print(data)
+    return data
+
+def GetOrganizationUserGroupById(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationUserGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_id_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def UpdateOrganizationUserGroupById(resellerId,organizationId, groupId,organizationUserGroupUpdateViewModel):
+    api_instance = swagger_client.OrganizationUserGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_id_put(resellerId,organizationId,groupId, organizationUserGroupUpdateViewModel)
+    print(data)
+    return data
+
+def DeleteOrganizationUserGroupById(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationUserGroupsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_user_groups_by_id_delete(resellerId,organizationId)
+    print(data)
+    return data
+
+
+

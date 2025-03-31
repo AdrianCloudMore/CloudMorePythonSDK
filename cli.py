@@ -49,7 +49,13 @@ commands = [
                 {"GetResellerOrganizationUserById": {"args": ["reseller", "organization", "user"],"info": "Get Reseller Organization User By ID"}},
                 {"GetAllResellerOrganizationUsers": {"args": ["reseller", "organization"],"info": "Get All Reseller Organization Users"}},
                 {"RemoveResellerOrganizationUserById": {"args": ["reseller", "organization", "user"],"info": "Delete Reseller Organization User By ID"}},
-                {"UpdateResellerOrganizationUserById": {"args": ["reseller", "organization", "user", "data [updateResellerOrganizationUserViewModel]"],"info": "Update Reseller Organization User By ID"}}
+                {"UpdateResellerOrganizationUserById": {"args": ["reseller", "organization", "user", "data [updateResellerOrganizationUserViewModel]"],"info": "Update Reseller Organization User By ID"}},
+                {"GetServiceCategories": {"args": [],"info": "Get Service Categories"}},
+                {"CreateSellerSubscription": {"args": ["seller", "data [createSellerSubscriptionViewModel]"],"info": "Create Seller Subscription"}},
+                {"RemoveSellerSubscriptionById": {"args": ["seller", "subscription", "remove-action"],"info": "Delete Seller Subscription"}},
+                {"GetAllSellerSubscriptions": {"args": ["seller"],"info": "Get All Seller Subscriptions"}}
+
+
 
 ]
 
