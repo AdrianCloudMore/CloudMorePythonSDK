@@ -953,5 +953,606 @@ def GetAllOrganizationCustomServiceProducts(resellerId,organizationId,serviceId)
     print(data)
     return data
 
+# Organization Roles API
+
+def GetAllOrganizationUserRoles(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationRolesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_organization_roles_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization Price List API
+
+def GetAllOrganizationProductPricesByServiceId(resellerId,serviceId,organizationId):
+    api_instance = swagger_client.OrganizationPriceListApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_pricelist_get(resellerId,serviceId,organizationId)
+    print(data)
+    return data
+
+def UpdateOrganizationProductPricesByServiceId(resellerId,serviceId,organizationId, organizationPriceListUpdateViewModel):
+    api_instance = swagger_client.OrganizationPriceListApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_by_service_id_pricelist_get(resellerId,serviceId,organizationId,organizationPriceListUpdateViewModel)
+    print(data)
+    return data
+
+# Organization Payment Methods API
+
+def GetOrganizationPaymentMethod(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_paymentmethods_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def UpdateOrganizationPaymentMethod(resellerId,organizationId,organizationPaymentMethodUpdateViewModel):
+    api_instance = swagger_client.OrganizationPaymentMethodsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_paymentmethods_put(resellerId,organizationId,organizationPaymentMethodUpdateViewModel)
+    print(data)
+    return data
+
+# Organization Manual Billing Line API
+
+
+
+def GetOrganizationCustomServiceManualBillingLineById(resellerId,organizationId,billingLineId ):
+    api_instance = swagger_client.OrganizationManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_manualbilling_by_id_get(resellerId,organizationId,billingLineId)
+    print(data)
+    return data
+
+def GetAllOrganizationBillingLines(resellerId,organizationId ):
+    api_instance = swagger_client.OrganizationManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_manualbilling_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def CreateOrganizationCustomServiceManualBillingLineById(resellerId,organizationId,organizationManualBillingLineCreateViewModel ):
+    api_instance = swagger_client.OrganizationManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_manualbilling_post(resellerId,organizationId,organizationManualBillingLineCreateViewModel)
+    print(data)
+    return data
+
+def UpdateOrganizationCustomServiceManualBillingLineByIdf(resellerId,organizationId,billingLineId,organizationManualBillingLineUpdateViewModel ):
+    api_instance = swagger_client.OrganizationManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_manualbilling_by_billing_line_id_put(resellerId,organizationId,billingLineId,organizationManualBillingLineUpdateViewModel)
+    print(data)
+    return data
+
+def DeleteOrganizationCustomServiceManualBillingLineByIdf(resellerId,organizationId,billingLineId ):
+    api_instance = swagger_client.OrganizationManualBillingLineApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_manualbilling_by_id_delete(resellerId,organizationId,billingLineId)
+    print(data)
+    return data
+
+# Organization CSP Users Async API
+
+def GetAllOrganizationCSPUsersAsync(resellerId,organizationId,taskId ):
+    api_instance = swagger_client.OrganizationCspUsersAsyncApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_async_by_task_id_get(resellerId,organizationId,taskId)
+    print(data)
+    return data
+
+def GenerateOrganizationMicrosoft365UserListAsync(resellerId,organizationId ):
+    api_instance = swagger_client.OrganizationCspUsersAsyncApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_async_post(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization CSP Users API
+
+def GetOrganizationCSPUserById(resellerId,organizationId,userId ):
+    api_instance = swagger_client.OrganizationCspUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_by_id_get(resellerId,organizationId,userId)
+    print(data)
+    return data
+
+def GetAllOrganizationCSPUsers(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def CreateOrganizationCSPUserById(resellerId,organizationId ,organizationCspUserCreateViewModel):
+    api_instance = swagger_client.OrganizationCspUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_post(resellerId,organizationId,organizationCspUserCreateViewModel)
+    print(data)
+    return data
+
+def UpdateOrganizationCSPUserById(resellerId,organizationId,userId ,organizationCspUserUpdateViewModel):
+    api_instance = swagger_client.OrganizationCspUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_by_user_id_put(resellerId,organizationId,userId,organizationCspUserUpdateViewModel)
+    print(data)
+    return data
+
+def DeleteOrganizationCSPUserById(resellerId,organizationId,userId ):
+    api_instance = swagger_client.OrganizationCspUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_by_user_id_delete(resellerId,organizationId,userId)
+    print(data)
+    return data
+
+# Organization CSP User Product Licenses API
+
+def RemoveOffice365ProductLicenseFromOrganizationUserById(resellerId,organizationId,userId, licenseId ):
+    api_instance = swagger_client.OrganizationCspUserProductLicensesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_by_user_id_productlicenses_by_id_delete(resellerId,organizationId,userId,licenseId)
+    print(data)
+    return data
+
+def AddOffice365ProductLicenseFromOrganizationUserById(resellerId,organizationId,userId, organizationCspUserProductLicenseAddViewModel):
+    api_instance = swagger_client.OrganizationCspUserProductLicensesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_users_by_user_id_productlicenses_post(resellerId,organizationId,userId,organizationCspUserProductLicenseAddViewModel)
+    print(data)
+    return data
+
+# Organization CSP Subscriptions NCE API
+
+def GetAllOrganizationCSPNCESubscriptions(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def GetOrganizationCSPNCESubscriptionById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_id_get(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def CreateOrganizationCSPNCESubscription(resellerId,organizationId,organizationCspNceSubscriptionCreateViewModel):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_post(resellerId,organizationId,organizationCspNceSubscriptionCreateViewModel)
+    print(data)
+    return data
+
+def DeleteOrganizationCSPNCESubscriptionById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_delete(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllOrganizationCSPNCEExistingSubscriptionEligiblitiesById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_existing_subscription_eligiblities_get(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllOrganizationCSPNCENewSubscriptionEligiblitiesById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_new_subscription_eligibilities_get(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def UpdateOrganizationO365CSPNCESubscriptionById(resellerId,organizationId,subscriptionId,organizationCspNceSubscriptionEditViewModel):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_put(resellerId,organizationId,subscriptionId,organizationCspNceSubscriptionEditViewModel)
+    print(data)
+    return data
+
+def GetOrganizationNCESubscriptionUpdateStatusById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_upgrade_status_get(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def UpgradeOrganizationExistingSubscriptionById(resellerId,organizationId,subscriptionId,organizationCspNceSubscriptionUpgradeToExistingSubscriptionViewModel):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_upgrade_to_new_subscription_post(resellerId,organizationId,subscriptionId,organizationCspNceSubscriptionUpgradeToExistingSubscriptionViewModel)
+    print(data)
+    return data
+
+def UpgradeOrganizationNewSubscriptionById(resellerId,organizationId,subscriptionId,organizationCspNceSubscriptionUpgradeToNewSubscriptionViewModel):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_by_subscription_id_upgrade_to_existing_subscription_post(resellerId,organizationId,subscriptionId,organizationCspNceSubscriptionUpgradeToNewSubscriptionViewModel)
+    print(data)
+    return data
+
+def GetOrganizationCSPNCESubscriptionAlignmentDates(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_subscriptions_alignmentdates_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization CSP Subscriptions API
+
+def GetOrganizationCSPSubscriptionById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_subscriptions_by_id_get(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+
+def GetAllOrganizationCSPSubscriptions(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_subscriptions_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def CreateOrganizationCSPSubscription(resellerId,organizationId,organizationCspSubscriptionCreateViewModel):
+    api_instance = swagger_client.OrganizationCspSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_subscriptions_post(resellerId,organizationId,organizationCspSubscriptionCreateViewModel)
+    print(data)
+    return data
+
+def SuspendOrganizationCSPSubscriptionById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationCspSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_subscriptions_by_subscription_id_delete(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def UpdateOrganizationCSPSubscriptionById(resellerId,organizationId,subscriptionId,organizationCspSubscriptionEditViewModel):
+    api_instance = swagger_client.OrganizationCspSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_subscriptions_by_subscription_id_put(resellerId,organizationId,subscriptionId,organizationCspSubscriptionEditViewModel)
+    print(data)
+    return data
+
+# Organization CSP Products NCE API
+
+def GetAllOrganizationCSPNCEProducts(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspProductsNceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_nce_products_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization CSP Products API
+
+def GetAllOrganizationCSPProducts(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspProductsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_products_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization CSP Product Licenses API
+
+
+def GetAllOrganizationO365ProductLicenses(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspProductLicensesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_productlicenses_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization CSP API
+
+def GetOrganizationCSPServiceDetails(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def AddMicrosoftCSPServiceFromEstoreToOrganization(resellerId,organizationId,organizationCspAddViewModel):
+    api_instance = swagger_client.OrganizationCspApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_post(resellerId,organizationId,organizationCspAddViewModel)
+    print(data)
+    return data
+
+def DeleteOrganizationCSPService(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationCspApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_csp_delete(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization Cost Center Reports API
+
+def GetOrganizationCostCenterReport(resellerId,organizationId,year,month):
+    api_instance = swagger_client.OrganizationCostCenterReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_costcenters_reports_by_year_by_month_get(resellerId,organizationId,year,month)
+    print(data)
+    return data
+
+# Organization Azure Users API
+
+def GetAllOrganizationAzureUsers(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationAzureUsersApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_users_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization Azure User Subscriptions API
+
+def AssignOrganizationAzureUserToSubscriptionById(resellerId,organizationId, userId, organizationAzureUserSubscriptionAddViewModel):
+    api_instance = swagger_client.OrganizationAzureUserSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_users_by_user_id_subscriptions_post(resellerId,organizationId,userId,organizationAzureUserSubscriptionAddViewModel)
+    print(data)
+    return data
+
+def RemoveOrganizationAzureUserFromSubscriptionById(resellerId,organizationId, userId, subscriptionId):
+    api_instance = swagger_client.OrganizationAzureUserSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_users_by_user_id_subscriptions_by_id_delete(resellerId,organizationId,userId,subscriptionId)
+    print(data)
+    return data
+
+def UpdateOrganizationAzureUserSubscriptionById(resellerId,organizationId, userId, organizationAzureUserRoleSubscriptionUpdateViewModel):
+    api_instance = swagger_client.OrganizationAzureUserSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_users_by_user_id_subscriptions_put(resellerId,organizationId,userId,organizationAzureUserRoleSubscriptionUpdateViewModel)
+    print(data)
+    return data
+
+def GetAllOrganizationAzureUserSubscriptions(resellerId,organizationId, userId):
+    api_instance = swagger_client.OrganizationAzureUserSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_users_by_user_id_subscriptions_get(resellerId,organizationId,userId)
+    print(data)
+    return data
+
+# Organization Azure Subscriptions API
+
+def SuspendOrganizationAzureSubscriptionById(resellerId,organizationId, subscriptionId):
+    api_instance = swagger_client.OrganizationAzureSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_subscriptions_by_subscription_id_delete(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllOrganizationAzureSubscriptions(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationAzureSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_subscriptions_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Organization Azure Plan Subscriptions API
+
+def GetOrganizationAzurePlanSubscriptionById(resellerId,organizationId,subscriptionId):
+    api_instance = swagger_client.OrganizationAzurePlanSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azureplan_subscriptions_by_id_get(resellerId,organizationId,subscriptionId)
+    print(data)
+    return data
+
+def GetAllOrganizationAzurePlanSubscriptions(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationAzurePlanSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azureplan_subscriptions_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def UpdateOrganizationAzurePlanSubscriptionById(resellerId,organizationId,subscriptionId,organizationAzurePlanSubscriptionUpdateViewModel):
+    api_instance = swagger_client.OrganizationAzurePlanSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azureplan_subscriptions_by_id_put(resellerId,organizationId,subscriptionId,organizationAzurePlanSubscriptionUpdateViewModel)
+    print(data)
+    return data
+
+def CreateOrganizationAzurePlanSubscription(resellerId,organizationId,organizationAzureSubscriptionCreateViewModel):
+    api_instance = swagger_client.OrganizationAzurePlanSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azureplan_subscriptions_post(resellerId,organizationId,organizationAzureSubscriptionCreateViewModel)
+    print(data)
+    return data
+
+def CreateOrganizationAzurePlanEntitlement(resellerId,organizationId,organizationAzureSubscriptionCreateViewModel):
+    api_instance = swagger_client.OrganizationAzurePlanSubscriptionsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azureplan_subscriptions_create_entitlement_post(resellerId,organizationId,organizationAzureSubscriptionCreateViewModel)
+    print(data)
+    return data
+
+# Organization Azure API
+
+def AddMicrosoftAzureServiceFromEstoreToOrganization(resellerId,organizationId,organizationAzureAddViewModel):
+    api_instance = swagger_client.OrganizationAzureApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_post(resellerId,organizationId,organizationAzureAddViewModel)
+    print(data)
+    return data
+
+def GetOrganizationAzureServiceDetails(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationAzureApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_get(resellerId,organizationId)
+    print(data)
+    return data
+
+def DeleteOrganizationAzureService(resellerId,organizationId):
+    api_instance = swagger_client.OrganizationAzureApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_services_azure_delete(resellerId,organizationId)
+    print(data)
+    return data
+
+# Market Region API
+
+def GetMarketRegions():
+    api_instance = swagger_client.MarketRegionApi(api_client=api_client)
+    data = api_instance.api_services_market_regions_get()
+    print(data)
+    return data
+
+# Market Countries API
+
+def GetMarketCountries():
+    api_instance = swagger_client.MarketCountriesApi(api_client=api_client)
+    data = api_instance.api_services_market_countries_get()
+    print(data)
+    return data
+
+# Health Check API
+
+def HealthCheck():
+    api_instance = swagger_client.HealthCheckApi(api_client=api_client)
+    data = api_instance.api_healthcheck_get()
+    print(data)
+    return data
+
+# External Invoice API
+
+def GetExternalInvoiceById(resellerId,organizationId,invoiceId):
+    api_instance = swagger_client.ExternalInvoiceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_external_invoice_by_id_get(resellerId,organizationId,invoiceId)
+    print(data)
+    return data
+
+def GetAllExternalInvoices(resellerId,organizationId,startDate,endDate):
+    api_instance = swagger_client.ExternalInvoiceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_external_invoice_get(resellerId,organizationId,startDate,endDate)
+    print(data)
+    return data
+
+def CreateExternalInvoice(resellerId,organizationId,externalInvoiceCreateViewModel):
+    api_instance = swagger_client.ExternalInvoiceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_external_invoice_post(resellerId,organizationId,externalInvoiceCreateViewModel)
+    print(data)
+    return data
+
+def UpdateExternalInvoiceById(resellerId,organizationId,invoiceId,externalInvoiceUpdateViewModel):
+    api_instance = swagger_client.ExternalInvoiceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_external_invoice_by_id_put(resellerId,organizationId,invoiceId,externalInvoiceUpdateViewModel)
+    print(data)
+    return data
+
+def DeleteExternalInvoiceById(resellerId,organizationId,invoiceId):
+    api_instance = swagger_client.ExternalInvoiceApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_external_invoice_by_id_delete(resellerId,organizationId,invoiceId)
+    print(data)
+    return data
+
+# EStore API
+
+def GetEstoreServiceDetailsById(resellerId,organizationId,serviceId):
+    api_instance = swagger_client.EstoreApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_estore_by_service_id_get(resellerId,organizationId,serviceId)
+    print(data)
+    return data
+
+def GetAllEstoreServices(resellerId,organizationId):
+    api_instance = swagger_client.EstoreApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_organizations_by_organization_id_estore_get(resellerId,organizationId)
+    print(data)
+    return data
+
+# Custom Properties API
+
+def GetAllOrganizationCustomProperties(resellerId):
+    api_instance = swagger_client.CustomPropertiesApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_settings_custom_properties_get(resellerId)
+    print(data)
+    return data
+
+def GetAllBrokerCustomProperties(sellerId):
+    api_instance = swagger_client.CustomPropertiesApi(api_client=api_client)
+    data = api_instance.api_sellers_by_seller_id_settings_custom_properties_get(sellerId)
+    print(data)
+    return data
+
+
+# CSP Tenants API
+
+def GetAllOrganizationLinkedToMicrosoftTenants(resellerId):
+    api_instance = swagger_client.CspTenantsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_csp_csp_tenants_list_get(resellerId)
+    print(data)
+    return data
+
+
+def LinkOrganizationMicrosoftTenant(resellerId,cspTenantLinkViewModel):
+    api_instance = swagger_client.CspTenantsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_csp_csp_tenants_link_post(resellerId,cspTenantLinkViewModel)
+    print(data)
+    return data
+
+# CSP Domain Validation API
+
+def ValidateMicrosoftCSPDomainPrefix(resellerId):
+    api_instance = swagger_client.CspDomainValidationApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_services_csp_domainvalidation_get(resellerId)
+    print(data)
+    return data
+
+# CSP Billing Reports API
+
+def GetMonthlyCSPBillingReportPerOrganization(resellerId,startDate,endDate):
+    api_instance = swagger_client.CspBillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_cspreports_monthly_billing_per_organization_get(resellerId,startDate,endDate)
+    print(data)
+    return data
+
+# Billing reports Async API
+
+def MonthlyCSPBillingReportPerOrganizationAsync(resellerId,taskId):
+    api_instance = swagger_client.BillingReportsAsyncApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_reports_monthly_billing_per_organization_async_by_task_id_get(resellerId,taskId)
+    print(data)
+    return data
+
+def GenerateMonthlyCSPBillingReportPerOrganizationAsync(resellerId,monthlyBillingPerOrganizationCreateAsyncViewModel):
+    api_instance = swagger_client.BillingReportsAsyncApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_reports_monthly_billing_per_organization_async_post(resellerId,monthlyBillingPerOrganizationCreateAsyncViewModel)
+    print(data)
+    return data
+
+# Billing Reports API
+
+def GetMonthlyBillingReportPerOrganization(resellerId,startDate,endDate):
+    api_instance = swagger_client.BillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_reports_monthly_billing_per_organization_get(resellerId,startDate,endDate)
+    print(data)
+    return data
+
+def GetMonthlyBillingReportPerService(resellerId,startDate,endDate):
+    api_instance = swagger_client.BillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_reports_monthly_billing_per_service_get(resellerId,startDate,endDate)
+    print(data)
+    return data
+
+# Azure Onetime Usage Report API
+
+def GetAzureOnetimeBilledUsageInvoiceReport(resellerId,invoiceId,pageNumber,pageSize):
+    api_instance = swagger_client.AzureOnetimeUsageReportApiApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azureonetimeusage_report_billed_invoice_by_invoice_id_get(resellerId,invoiceId,pageNumber,pageSize)
+    print(data)
+    return data
+
+def RequestAzureOnetimeUnbilledUsageInvoiceReport(resellerId,period,azureOneTimeUnbilledUsageRequestViewModel):
+    api_instance = swagger_client.AzureOnetimeUsageReportApiApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azureonetimeusage_report_unbilled_period_by_period_export_post(resellerId,period,azureOneTimeUnbilledUsageRequestViewModel)
+    print(data)
+    return data
+
+def GetAzureOnetimeUnbilledUsageInvoiceReport(resellerId,period,operationId,pageNumber,pageSize):
+    api_instance = swagger_client.AzureOnetimeUsageReportApiApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azureonetimeusage_report_unbilled_period_by_period_operation_by_operation_id_result_get(resellerId,period,operationId,pageNumber,pageSize)
+    print(data)
+    return data
+
+def GetAzureOnetimeUnbilledUsageInvoiceReportStatus(resellerId,period,operationId):
+    api_instance = swagger_client.AzureOnetimeUsageReportApiApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azureonetimeusage_report_unbilled_period_by_period_operation_by_operation_id_status_get(resellerId,period,operationId)
+    print(data)
+    return data
+
+# Azure Onetime Usage API
+
+def GetAzureOnetimeUsageInvoiceReport(resellerId):
+    api_instance = swagger_client.AzureOneTimeUsageApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azureonetimeusage_azure_one_time_invoice_get(resellerId)
+    print(data)
+    return data
+
+def GetAzureOnetimeUsageOngoingPeriodInvoiceReport(resellerId):
+    api_instance = swagger_client.AzureOneTimeUsageApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azureonetimeusage_azure_one_time_ongoing_period_get(resellerId)
+    print(data)
+    return data
+
+# Azure Billing Reports API
+
+def GetAzureOnetimeInvoiceById(resellerId,invoiceId):
+    api_instance = swagger_client.AzureBillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azurereports_invoice_get(resellerId,invoiceId)
+    print(data)
+    return data
+
+def GenerateAzureOnetimeBillingReportAsync(resellerId,storeToBlob,invoiceNumber):
+    api_instance = swagger_client.AzureBillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azurereports_azure_one_time_invoice_generate_report_post(resellerId,storeToBlob,invoiceNumber)
+    print(data)
+    return data
+
+def GetAzureOnetimeBillingReportAsync(resellerId,taskId):
+    api_instance = swagger_client.AzureBillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azurereports_azure_one_time_invoice_by_task_id_get(resellerId,taskId)
+    print(data)
+    return data
+
+def GetAzureOnetimeInvoices(resellerId,):
+    api_instance = swagger_client.AzureBillingReportsApi(api_client=api_client)
+    data = api_instance.api_resellers_by_reseller_id_billing_azurereports_azure_one_time_invoice_list_get(resellerId)
+    print(data)
+    return data
+
+
+
+
+
+
+
+
 
 
