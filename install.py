@@ -9,24 +9,24 @@ def generateClient():
 
     headers = {'Content-type': 'application/json'}
 
-    with requests.post(url="https://generator.swagger.io/api/gen/clients/python",data='{"swaggerUrl":"https://api.cloudmore.com/swagger/v1/swagger.json"}',params=None,headers=headers) as url:
+    with requests.post(url="https://generator.swagger.io/api/gen/clients/python",data='{ "options": { "packageName": "cloudmore_sdk" }, "swaggerUrl":"https://api.cloudmore.com/swagger/v1/swagger.json"}',params=None,headers=headers) as url:
         data = url.json()
         print(data)
         link = data.get("link")
 
     r = requests.get(link,allow_redirects=True)
 
+    try:
+        open('python_client_generated.zip', 'xb').write(r.content)
 
-    open('python-client-generated.zip','wb').write(r.content)
+        zip_ref = zipfile.ZipFile('python_client_generated.zip', 'r')
 
-    with zipfile.ZipFile('python-client-generated.zip', 'r') as zip_ref:
+
         zip_ref.extractall()
 
-    try:
-        os.remove("python-client-generated.zip")
+        os.remove("python_client_generated.zip")
     except Exception as e:
         print(e)
-
    # source_folder = r"./python-client/*"
    # destination_folder = r"."
 

@@ -1,5 +1,5 @@
 import argparse
-import swagger_client
+import cloudmore_sdk
 import api
 from auth_config import AuthConfig
 

@@ -24,25 +24,26 @@ Note that the auto-generated client also comes with API documentation, located i
 
 ## Package 
 
-Next you will need to package the swagger client into a python package (.egg), note that you can 
-change the name and version of the package in python-client/setup.py.
+Next you will need to package the swagger client into a python package (.egg),
 
 To package the client, go into the python-client folder and run the following command:
 
 ```sh
-python3 setup.py install --user
+sudo python3 setup.py install --user
 ```
-(or `sudo python setup.py install` to install the package for all users)
-
-
-Final step is to install the package that was created, if you didnt change anything in setup.py
-it will be named something like swagger_client-1.0.0-****.egg , in the python-client/dist folder,
+(or `python setup.py install` to install the package for all users)
+ 
+there should now be a package mnamed cloudmore_sdk-1.0.0-py3.12.egg in the python-client/dist folder,
 
 Once the package is installed you can import the package, and run the sample cli.py script (see samples below)
 
 ```python
-import swagger_client
+import cloudmore_sdk
 ```
+
+## TO DO
+
+Use the actual models in cloudmore_sdk/models 
 
 
 ## Configure Authentication
