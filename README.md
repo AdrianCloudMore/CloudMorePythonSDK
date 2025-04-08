@@ -141,7 +141,7 @@ pip install git+https://github.com//.git
 
 Then import the package:
 ```python
-import swagger_client 
+import cloudmore_sdk 
 ```
 
 ### Setuptools
@@ -155,7 +155,7 @@ python3 setup.py install --user
 
 Then import the package:
 ```python
-import swagger_client
+import cloudmore_sdk
 ```
 
 ## Getting Started
@@ -165,12 +165,12 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import cloudmore_sdk
+from cloudmore_sdk.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.AzureBillingReportsApi(swagger_client.ApiClient(configuration))
+api_instance = cloudmore_sdk.AzureBillingReportsApi(cloudmore_sdk.ApiClient(cloudmore_sdk.configuration))
 reseller_id = 'reseller_id_example' # str | Guid of the reseller(required)
 task_id = 'task_id_example' # str | Id of the data generation task returned in the response header \"Location\" of a call to POST AzureOneTimeBillingAsync.
 
